@@ -1875,6 +1875,9 @@ let SysinfoController = class SysinfoController {
     getData() {
         return this.sysinfoService.getData();
     }
+    getFirstStartFolder() {
+        return this.sysinfoService.getFirstStartFolder();
+    }
 };
 (0, tslib_1.__decorate)([
     (0, common_1.Get)("sysinfo"),
@@ -1882,6 +1885,12 @@ let SysinfoController = class SysinfoController {
     (0, tslib_1.__metadata)("design:paramtypes", []),
     (0, tslib_1.__metadata)("design:returntype", typeof (_a = typeof rxjs_1.Observable !== "undefined" && rxjs_1.Observable) === "function" ? _a : Object)
 ], SysinfoController.prototype, "getData", null);
+(0, tslib_1.__decorate)([
+    (0, common_1.Get)("firststartfolder"),
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", []),
+    (0, tslib_1.__metadata)("design:returntype", String)
+], SysinfoController.prototype, "getFirstStartFolder", null);
 SysinfoController = (0, tslib_1.__decorate)([
     (0, common_1.Controller)(),
     (0, tslib_1.__metadata)("design:paramtypes", [typeof (_b = typeof sysinfo_service_1.SysinfoService !== "undefined" && sysinfo_service_1.SysinfoService) === "function" ? _b : Object])
@@ -1929,6 +1938,7 @@ const child_process_1 = __webpack_require__("child_process");
 const rxjs_1 = __webpack_require__("rxjs");
 const fnf_data_1 = __webpack_require__("./libs/fnf-data/src/index.ts");
 const env = process.env;
+const FIRST_START_FOLDER = env.FNF_START_PATHS;
 let SysinfoService = class SysinfoService {
     /**
      *
@@ -1998,6 +2008,9 @@ let SysinfoService = class SysinfoService {
     }
     getData() {
         return (0, rxjs_1.from)(this.getSystemInfoPromise());
+    }
+    getFirstStartFolder() {
+        return FIRST_START_FOLDER ? FIRST_START_FOLDER : '/';
     }
 };
 SysinfoService = (0, tslib_1.__decorate)([
