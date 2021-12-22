@@ -730,10 +730,16 @@ let DrivesService = DrivesService_1 = class DrivesService {
     }
     exists(path) {
         try {
-            return fse.existsSync(path.split(':')[0]);
+            return fse.existsSync(path);
         }
         catch (e) {
-            return false;
+            try {
+                // zip-Url?
+                return fse.existsSync(path.split(':')[0]);
+            }
+            catch (e) {
+                return false;
+            }
         }
     }
     /**
@@ -903,15 +909,15 @@ function copy(para) {
                     cmd = "cp -r \"" + sourceUrl + "\" \"" + ptarget.dir + "\"";
                 }
                 else if (windows) {
-                    let src = (0, slash_2_backslash_fn_1.slash2backSlash)(sourceUrl);
+                    const src = (0, slash_2_backslash_fn_1.slash2backSlash)(sourceUrl);
                     if (sourceIsDirectory) {
                         // xcopy  "C:\Users\kronmar\bbbbb\marc\a" "C:\Users\kronmar\bbbbb\marc2\a\" /E /C /I /H /R /Y
-                        let t1 = (0, slash_2_backslash_fn_1.slash2backSlash)(ptarget.dir + "/" + psource.base + "/");
+                        const t1 = (0, slash_2_backslash_fn_1.slash2backSlash)(ptarget.dir + "/" + psource.base + "/");
                         cmd = `xcopy  "${src}" "${t1}" /E /C /I /H /R /Y `;
                     }
                     else {
                         // xcopy  "C:\Users\kronmar\bbbbb\marc\zipEntries.js" "C:\Users\kronmar\bbbbb\marc2" /Y
-                        let td = (0, slash_2_backslash_fn_1.slash2backSlash)(ptarget.dir);
+                        const td = (0, slash_2_backslash_fn_1.slash2backSlash)(ptarget.dir);
                         cmd = `xcopy  "${src}" "${td}" /Y `;
                     }
                 }
@@ -2453,11 +2459,11 @@ exports.FilePara = FilePara;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fixPath = void 0;
-const fnf_data_1 = __webpack_require__("./libs/fnf-data/src/index.ts");
+const fix_slash_fn_1 = __webpack_require__("./libs/fnf-data/src/lib/file/fix-slash.fn.ts");
 function fixPath(s) {
     if (!s)
         return '';
-    s = (0, fnf_data_1.fixSlash)(s);
+    s = (0, fix_slash_fn_1.fixSlash)(s);
     if (s.length === 2 && s[1] === ':') {
         s = s + '/'; // c: -> c:/
     }
