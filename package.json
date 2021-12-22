@@ -11,7 +11,7 @@
     "docker:image-remove": "docker image rm krocon/fnf -f",
     "docker:build": "docker build . -t krocon/fnf",
     "docker:run": "docker run -p 3333:3333 -p 3334:3334 -v /:/fnf --name fnf --env=FNF_INCOMPATIBLE_PATHS='' -d krocon/fnf",
-    "docker:run-win": "docker run -p 3333:3333 -p 3334:3334 -v c://:/fnf/c  d://:/fnf/d --name fnf --env=FNF_INCOMPATIBLE_PATHS='' -d krocon/fnf",
+    "docker:run-win": "docker run -p 3333:3333 -p 3334:3334 -v c:\\:/fnf/c  -v d:\\:/fnf/d --name fnf --env=FNF_INCOMPATIBLE_PATHS='' --env=FNF_START_PATHS='c:/' -d krocon/fnf",
     "docker:run-imac": "docker run -p 3333:3333 -p 3334:3334 -v /Users/marckronberg:/fnf/vols/marckronberg -v /Users/Shared:/fnf/vols/Shared --name fnf --env=FNF_INCOMPATIBLE_PATHS='' -d krocon/fnf",
     "docker-restart": "docker container start fnf",
     "docker:print-container-id": "docker ps | grep  ' krocon/fnf ' | awk '{ print $1 }'",
