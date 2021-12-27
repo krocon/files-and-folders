@@ -1,6 +1,6 @@
 {
   "name": "files-and-folders",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "ISC",
   "scripts": {
     "ng": "nx",
