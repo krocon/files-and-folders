@@ -1,0 +1,75 @@
+<h2 mat-dialog-title data-test-id="dlg-find-title">Find</h2>
+
+
+<mat-dialog-content class="h-full">
+
+  <form [formGroup]="formGroup">
+    <mat-form-field>
+      <input
+        (keydown.enter)="onOkClicked()"
+        class="pb-4"
+        data-test-id="folder-input"
+        formControlName="folder"
+        matInput
+        placeholder="Search in"
+        [readonly]="!!data.folders"
+      />
+      <mat-error>
+        Please enter a valid folder
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input
+        (keydown.enter)="onOkClicked()"
+        [fnfAutofocus]="autofocus"
+        class="pb-4"
+        data-test-id="pattern-input"
+        formControlName="pattern"
+        matInput
+        placeholder="Search for"
+      />
+      <mat-icon matSuffix [matMenuTriggerFor]="menu">expand_more</mat-icon>
+      <mat-menu #menu="matMenu">
+        <button
+          mat-menu-item
+          *ngFor="let p of lastPatterns"
+          (click)="setPattern(p)"
+          [innerText]="p"></button>
+      </mat-menu>
+      <mat-error>
+        Please enter a valid pattern
+      </mat-error>
+    </mat-form-field>
+
+    <mat-checkbox
+      class="pb-8 pt-4"
+      data-test-id="newtab-input"
+      formControlName="newtab"
+      name="newtab">Results in a new tab</mat-checkbox>
+
+  </form>
+</mat-dialog-content>
+
+
+<mat-dialog-actions>
+  <button
+    (click)="onCancelClicked()"
+    class="flex-1"
+    data-test-id="dialog-cancel-button"
+    color=""
+    mat-raised-button>
+    Cancel
+  </button>
+
+  <button
+    (click)="onOkClicked()"
+    [disabled]="!formGroup.valid"
+    class="flex-1"
+    data-test-id="dialog-ok-button"
+    mat-raised-button
+    color="primary">
+    OK
+  </button>
+</mat-dialog-actions>

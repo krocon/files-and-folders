@@ -1,0 +1,239 @@
+@import "fnf-css-custom-properties";
+
+fnf-root {
+  .fnf-table-background {
+    background: var(--fnf-table-bg-color);
+  }
+
+  .mat-drawer-container,
+  .mat-tab-label,
+  .mat-tab-link {
+    color: var(--fnf-table-fg-color);
+  }
+
+
+  .mat-tab-header {
+    .mat-tab-label {
+      border-right-color: var(--fnf-header-bg-color);
+      border-left-color: var(--fnf-header-bg-color);
+      border-top-color: var(--fnf-header-bg-color);
+      border-bottom-color: var(--fnf-header-border-color);
+    }
+
+    .mat-tab-label-container {
+      .mat-inc-bar {
+        background-color: var(--fnf-header-border-color);
+      }
+    }
+
+  }
+
+  .mat-tab-header-pagination {
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    box-shadow: none !important;
+    border-bottom: solid 1px var(--fnf-header-border-color);
+  }
+  .fnf-active-panel {
+    .fnf-border-bottom {
+      border-bottom: solid 1px var(--fnf-activepanel-header-border-color);
+    }
+    .mat-tab-header-pagination {
+      border-bottom: solid 1px var(--fnf-activepanel-header-border-color);
+    }
+  }
+
+  .mat-form-field-label,
+  .mat-select-arrow,
+  .mat-form-field-hide-placeholder .mat-select-placeholder {
+    color: var(--fnf-footer-button-fg-color);
+  }
+
+  mat-tab-group {
+    mat-tab-header {
+      .mat-tab-label {
+        border-left: solid 1px var(--fnf-table-bg-color);
+        border-right: solid 1px var(--fnf-table-bg-color);
+        border-bottom: solid 1px var(--fnf-header-border-color);
+        background-color: transparent;
+        opacity: 1;
+        font-weight: normal;
+
+        &.mat-tab-label-active {
+          background: var(--fnf-header-selected-tab-bg-color);
+          color: var(--fnf-header-selected-tab-fg-color);
+          border-top: solid 1px var(--fnf-header-border-color);
+          border-left: solid 1px var(--fnf-header-border-color);
+          border-right: solid 1px var(--fnf-header-border-color);
+          border-bottom: solid 1px var(--fnf-activepanel-header-selected-tab-bg-color);
+          opacity: 1.0;
+
+          .fnf-active-panel-text-color {
+            color: var(--fnf-header-link-selected-color);
+          }
+        }
+      }
+    }
+  }
+
+  .fnf-border-right {
+    border-right: solid 1px var(--fnf-header-border-color);
+  }
+
+  .fnf-active-panel {
+    mat-tab-group {
+      mat-tab-header {
+        .mat-tab-label {
+          border-bottom: solid 1px var(--fnf-activepanel-header-border-color);
+
+          &.mat-tab-label-active {
+            background: var(--fnf-activepanel-header-selected-tab-bg-color);
+            color: var(--fnf-activepanel-header-selected-tab-fg-color);
+            border-top: solid 1px var(--fnf-activepanel-header-border-color);
+            border-left: solid 1px var(--fnf-activepanel-header-border-color);
+            border-right: solid 1px var(--fnf-activepanel-header-border-color);
+            border-bottom: solid 2px var(--fnf-activepanel-header-selected-tab-bg-color);
+            //border-bottom: solid 2px yellow;
+          }
+        }
+      }
+    }
+  }
+
+
+  .selected {
+    mat-tab-group {
+      mat-tab-header {
+        .mat-tab-label.mat-tab-label-active {
+          border-top-right-radius: 2px;
+          border-top-left-radius: 2px;
+        }
+      }
+    }
+  }
+
+  .mat-tab-group.mat-primary .mat-ink-bar,
+  .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: var(--fnf-table-header-bg-color);
+  }
+
+
+  .fnf-active-panel {
+    .mat-tab-group.mat-primary .mat-ink-bar,
+    .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+      background-color: var(--fnf-activepanel-table-header-bg-color);
+    }
+  }
+
+  .mat-tab-nav-bar, .mat-tab-header {
+    border-bottom: 0
+  }
+
+  .mat-menu-panel.fnf-file-menu {
+    max-width: 600px; // TODO 80vw ?
+    .mat-menu-item {
+      height: 35px;
+      line-height: 35px;
+    }
+  }
+
+
+  mat-tab-group {
+    mat-tab-header {
+      .mat-tab-label {
+        padding-left: 1px !important;
+        padding-right: 1px !important;
+        min-width: 40px !important;
+        height: 44px;
+      }
+    }
+  }
+
+  .mat-toolbar-row.pr-0, .mat-toolbar-single-row.pr-0 {
+    padding-right: 0;
+    height: 50px;
+  }
+
+  .mat-form-field-appearance-fill .mat-form-field-flex,
+  .mat-form-field-flex,
+  .mat-select-value,
+  .mat-form-field-infix {
+    background-color: var(--fnf-header-input-background-color);
+    color: var(--fnf-header-input-foreground-color);
+  }
+
+  .bg-transparent {
+    .mat-form-field-appearance-fill .mat-form-field-flex,
+    .mat-form-field-flex,
+    .mat-select-value,
+    .mat-form-field-infix {
+      background-color: transparent;
+    }
+  }
+
+}
+
+// must be outside:
+.mat-menu-panel.fnf-file-menu {
+  max-width: none !important;
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+  &.pl-0 {
+    padding-left: 0 !important;
+    min-width: 10px;
+  }
+
+  &.pr-0 {
+    padding-right: 0 !important;
+    min-width: 10px;
+  }
+}
+
+.mat-flat-button, .mat-raised-button,
+.mat-button, .mat-icon-button, .mat-stroked-button,
+.mat-fab, .mat-mini-fab {
+  background-color: var(--fnf-header-bg-color);
+  color: var(--fnf-header-fg-color);
+
+  &.mat-primary {
+    background-color: var(--fnf-material-primary-color);
+  }
+
+  &.mat-warn {
+    background-color: var(--fnf-material-warn-color);
+  }
+
+  &.mat-accent {
+    background-color: var(--fnf-material-accent-color);
+  }
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: var(--fnf-material-primary-color);
+}
+
+.mat-form-field.mat-focused .mat-form-field-label.mat-accent {
+  color: var(--fnf-material-accent-color);
+}
+
+.mat-form-field.mat-focused .mat-form-field-label.mat-warn {
+  color: var(--fnf-material-warn-color);
+}
+
+.mat-focused .mat-form-field-required-marker {
+  color: var(--fnf-material-warn-color);
+}
+
+.mat-form-field-ripple {
+  background-color: rgba(0,0,0,.87)
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: var(--fnf-material-primary-color);
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple.mat-accent {
+  background-color: var(--fnf-material-accent-color);
+}

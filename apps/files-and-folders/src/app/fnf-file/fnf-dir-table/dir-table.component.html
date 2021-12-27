@@ -1,0 +1,23 @@
+<ag-grid-angular
+  (cellFocused)="onCellFocused($event)"
+  (componentStateChanged)="onComponentStateChanged($event)"
+  (gridReady)="onGridReady($event)"
+  (modelUpdated)="onGridModelUpdatet($event)"
+  (rowDoubleClicked)="rowDoubleClicked($event)"
+  (selectionChanged)="onSelectionChanged()"
+
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [gridOptions]="gridOptions"
+  [headerHeight]="30"
+  [overlayLoadingTemplate]="'<span class=\'ag-overlay-loading-center\'>Loading...</span>'"
+  [overlayNoRowsTemplate]="'<span>-</span>'"
+  [rowData]="rowData"
+
+  [rowHeight]="30"
+  [rowMultiSelectWithClick]="false"
+
+  [rowSelection]="'multiple'"
+  class="ag-theme-material fnf-grid"
+>
+</ag-grid-angular>

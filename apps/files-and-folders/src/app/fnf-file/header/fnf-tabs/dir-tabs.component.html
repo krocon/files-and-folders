@@ -1,0 +1,76 @@
+<div
+  [ngClass]="{selected: selected}"
+  class="flex flex-row">
+
+  <div class="flex-none pt-1 pl-0 pr-0 fnf-border-bottom">
+    <fnf-fav-menu
+      [favs]="favs"
+      [latest]="latest"
+      [panelIndex]="panelIndex"
+      [winDrives]="winDrives">
+    </fnf-fav-menu>
+  </div>
+
+  <mat-tab-group
+    (selectedIndexChange)="onSelectionChanged($event)"
+    [@.disabled]="true"
+    [disablePagination]="false"
+    [selectedIndex]="selectedTabIndex"
+    animationDuration="0ms"
+    style="max-width: calc(100% - 200px)">
+
+    <mat-tab
+      *ngFor="let t of tabsPanelData.tabs; index as idx; last as isLast">
+      <ng-template mat-tab-label>
+        <span
+          [innerText]="fixTabLabel(t.path)"
+          [matTooltip]="t.path"
+          [ngClass]="{
+            'fnf-header-fg-color': (idx !== tabsPanelData.selectedTabIndex),
+            'fnf-active-fg-color': (idx === tabsPanelData.selectedTabIndex && selected)
+            }"
+          class="pl-2 pr-2"
+        ></span>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+
+  <div class="flex-none pt-1 fnf-border-bottom">
+    <button
+      (click)="onAddTabClicked($event)"
+      class="pr-0"
+      mat-button>
+      <mat-icon>add_circle_outline</mat-icon>
+    </button>
+    <button
+      (click)="onRemoveTabClicked($event)"
+      class="pr-0"
+      mat-button>
+      <mat-icon>remove_circle_outline</mat-icon>
+    </button>
+  </div>
+
+  <div class="flex-grow fnf-border-bottom">
+    <button
+      (click)="toggleFilterInput()"
+      class="pl-0 pr-2 float-right"
+      mat-button>
+      <mat-icon>filter_alt</mat-icon>
+    </button>
+    <input
+      #filter
+      (change)="onFilterChangedByUser()"
+      (keyup)="onFilterChangedByUser()"
+      *ngIf="filterVisible && selectedTabData"
+      [(ngModel)]="selectedTabData.meta.filterText"
+      [ngClass]="{
+        'hidden' : !filterVisible,
+        'panelIndex0' : panelIndex === 0
+        }"
+      autofocus="autofocus"
+      class="filter border-0 float-right mr-1"
+      matInput
+      placeholder="Filter">
+  </div>
+
+</div>

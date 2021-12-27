@@ -1,0 +1,133 @@
+<div class="fnf-files-div flex flex-col h-full">
+
+  <div *ngIf="filePageData" class="fnf-header-bg-color fnf-header-fg-color">
+
+    <div class="flex flex-row flex-grow">
+      <div (click)="setActivePanel(0);"
+           class="w-1/2 pl-2">
+        <fnf-bread-crumb
+          (pathClicked)="onBreadcrumbClicked($event, 0)"
+          (toggleFavClicked)="onToggleFavClicked($event)"
+          [favs]="favs"
+          [ngClass]="{'fnf-active-panel':activePanelIndex===0}"
+          [path]="path0"
+          [selected]="activePanelIndex===0">
+        </fnf-bread-crumb>
+      </div>
+      <div (click)="setActivePanel(1);"
+           class="w-1/2 pl-2">
+        <fnf-bread-crumb
+          (pathClicked)="onBreadcrumbClicked($event, 1)"
+          (toggleFavClicked)="onToggleFavClicked($event)"
+          [favs]="favs"
+          [ngClass]="{'fnf-active-panel':activePanelIndex===1}"
+          [path]="path1"
+          [selected]="activePanelIndex===1"
+        ></fnf-bread-crumb>
+      </div>
+    </div>
+
+    <div class="flex flex-row flex-grow">
+      <div (click)="setActivePanel(0);"
+           class="w-1/2">
+        <fnf-dir-tabs
+          (dataChanged)="onTabDataChanged($event, 0)"
+          (filterChanged)="onFilterChanged($event, 0)"
+          [favs]="favs"
+          [latest]="latest"
+          [ngClass]="{'fnf-active-panel':activePanelIndex===0}"
+          [panelIndex]="0"
+          [selected]="activePanelIndex===0"
+          [sysinfo]="sysinfo"
+          [tabsPanelData]="filePageData.tabRows[0]"
+          [winDrives]="winDrives"
+        ></fnf-dir-tabs>
+      </div>
+
+      <div (click)="setActivePanel(1);"
+           class="w-1/2">
+        <fnf-dir-tabs
+          (dataChanged)="onTabDataChanged($event, 1)"
+          (filterChanged)="onFilterChanged($event, 1)"
+          [favs]="favs"
+          [latest]="latest"
+          [ngClass]="{'fnf-active-panel':activePanelIndex===1}"
+          [panelIndex]="1"
+          [selected]="activePanelIndex===1"
+          [sysinfo]="sysinfo"
+          [tabsPanelData]="filePageData.tabRows[1]"
+          [winDrives]="winDrives"
+        ></fnf-dir-tabs>
+      </div>
+    </div>
+  </div>
+
+  <div class="fnf-files-panel flex flex-row flex-grow fnf-table-background">
+    <div (click)="setActivePanel(0);"
+         class="w-1/2 fnf-border-right">
+      <fnf-dir-table
+        (cellFocused)="onFocusChanged($event, 0)"
+        (changeDir)="onChangeDir($event, 0)"
+        (selectionChanged)="onSelectionChanged($event, 0)"
+        [dir]="path0"
+        [counter]="counter"
+        [findData]="findData0"
+        [filterValue]="filterValue0"
+        [focusRow]="focusRow0"
+        [ngClass]="{'fnf-active-panel':activePanelIndex===0}"
+        [panelIndex]="0"
+        [selectedFileItems]="selectedFileItems0"
+        [selected]="activePanelIndex===0"
+        class="fnf-left-grid"></fnf-dir-table>
+    </div>
+
+    <div (click)="setActivePanel(1);"
+         class="w-1/2">
+      <fnf-dir-table
+        (cellFocused)="onFocusChanged($event, 1)"
+        (changeDir)="onChangeDir($event, 1)"
+        (selectionChanged)="onSelectionChanged($event, 1)"
+        [dir]="path1"
+        [counter]="counter"
+        [findData]="findData1"
+        [filterValue]="filterValue1"
+        [focusRow]="focusRow1"
+        [ngClass]="{'fnf-active-panel':activePanelIndex===1}"
+        [panelIndex]="1"
+        [selectedFileItems]="selectedFileItems1"
+        [selected]="activePanelIndex===1"
+        class="fnf-left-grid"></fnf-dir-table>
+    </div>
+  </div>
+
+  <div class="fnf-footer-bg-color fnf-footer-fg-color w-full">
+
+    <div class="flex">
+      <div
+        (click)="setActivePanel(0);"
+        [ngClass]="{'fnf-active-panel':activePanelIndex===0}"
+        class="w-1/2 pt-2 pl-4">
+
+        <fnf-summary-label
+          [panelIndex]="0"
+          [selected]="activePanelIndex===0"
+          [selectionLabelData]="selectionLabelData0"></fnf-summary-label>
+      </div>
+
+      <div
+        (click)="setActivePanel(1);"
+        [ngClass]="{'fnf-active-panel':activePanelIndex===1}"
+        class="w-1/2 pt-2 pl-4">
+
+        <fnf-summary-label
+          [panelIndex]="1"
+          [selected]="activePanelIndex===1"
+          [selectionLabelData]="selectionLabelData1"></fnf-summary-label>
+
+      </div>
+    </div>
+
+    <fnf-button-panel [activeSelectedFiles]="activeSelectedFiles"></fnf-button-panel>
+  </div>
+
+</div>

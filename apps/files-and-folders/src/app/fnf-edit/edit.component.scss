@@ -1,0 +1,15 @@
+
+.cancel-fab,
+.save-fab {
+  position: fixed;
+  left: 10px;
+  z-index: 100;
+}
+
+.cancel-fab {
+  bottom: 100px;
+}
+
+.save-fab {
+  bottom: 150px;
+}

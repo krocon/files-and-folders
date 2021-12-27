@@ -1,0 +1,20 @@
+@import "assets/font-awesome-4.5.0/css/font-awesome.min.css";
+
+// https://tailwindcss.com/
+// https://www.angularjswiki.com/angular/angular-tailwind-css/
+@import "tailwindcss/base";
+//@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+$fa-css-prefix: "fa";
+@import "~@fortawesome/fontawesome-free/scss/_variables";
+@import "~@fortawesome/fontawesome-free/scss/_icons";
+
+
+@import "scss/fnf-base";
+
+@import "scss/fnf-color";
+@import "scss/fnf-color-classes";
+@import "scss/fnf-ag-grid";
+@import "scss/fnf-material.scss";
+@import "scss/fnf-scrollbar";

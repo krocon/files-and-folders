@@ -1,0 +1,44 @@
+// we don't want to see the pagination arrows:
+//::ng-deep .mat-tab-header-pagination {
+//  display: none !important;
+//}
+
+.mat-tab-label-container {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  z-index: 1;
+  overflow-x: scroll !important;
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+  &.pl-0 {
+    padding-left: 0 !important;
+    min-width: 10px;
+  }
+
+  &.pr-0 {
+    padding-right: 0 !important;
+    min-width: 10px;
+  }
+}
+
+input.filter {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  min-width: 60px;
+  width: 80px;
+  margin-top: 5px;
+  background-color: var(--fnf-header-input-background-color);
+  color: var(--fnf-header-input-foreground-color);
+  border: var(--fnf-header-input-border);
+  border-radius: 4px;
+
+  &.panelIndex0 {
+    right: calc(50%);
+  }
+  &.hidden {
+    display: none;
+  }
+}

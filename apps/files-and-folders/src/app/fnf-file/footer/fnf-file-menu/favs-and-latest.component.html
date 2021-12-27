@@ -1,0 +1,35 @@
+<button [matMenuTriggerFor]="menuFavs" mat-flat-button class="pl-1 pr-0">
+  <mat-icon>expand_more</mat-icon>
+</button>
+
+<mat-menu #menuFavs="matMenu" class="fnf-file-menu">
+
+  <button
+    (click)="onItemClicked(drv)"
+    *ngFor="let drv of winDrives"
+    mat-menu-item>
+    <mat-icon>save</mat-icon>
+    <span [innerText]="drv"></span>
+  </button>
+
+  <mat-divider *ngIf="winDrives?.length && favs?.length"></mat-divider>
+
+  <button
+    (click)="onItemClicked(fav)"
+    *ngFor="let fav of favs"
+    mat-menu-item>
+    <mat-icon>star</mat-icon>
+    <span [innerText]="fav"></span>
+  </button>
+
+  <mat-divider *ngIf="favs?.length && latest?.length"></mat-divider>
+
+  <button
+    (click)="onItemClicked(latest)"
+    *ngFor="let latest of latest"
+    mat-menu-item>
+    <mat-icon>schedule</mat-icon>
+    <span [innerText]="latest"></span>
+  </button>
+
+</mat-menu>

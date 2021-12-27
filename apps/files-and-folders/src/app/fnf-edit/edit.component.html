@@ -1,0 +1,32 @@
+<button
+  (click)="onSaveClicked($event)"
+  [disabled]="!unsaved"
+  aria-label="Save"
+  class="save-fab fnf-active-background-color"
+  color=""
+  mat-mini-fab>
+  <mat-icon>save</mat-icon>
+</button>
+
+<button
+  (click)="onCancelClicked($event)"
+  aria-label="Cancel"
+  class="cancel-fab fnf-active-background-color"
+  color=""
+  mat-mini-fab>
+  <mat-icon>cancel</mat-icon>
+</button>
+
+<div
+  (textChanged)="onTextChanged($event)"
+  [(text)]="text"
+  [autoUpdateContent]="true"
+  [durationBeforeCallback]="1000"
+  [mode]="'text'"
+  [options]="options"
+  [readOnly]="false"
+  [theme]="'eclipse'"
+  class="flex flex-col h-screen w-screen editor-div"
+  style="height: 100vh;min-height: 100vh;overflow: auto;"
+  ngxAceEditor>
+</div>

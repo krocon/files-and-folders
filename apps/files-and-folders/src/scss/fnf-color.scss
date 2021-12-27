@@ -1,0 +1,29 @@
+@import "fnf-css-custom-properties";
+
+
+html, body {
+  background: var(--fnf-header-bg-color);
+  color: var(--fnf-header-fg-color);
+}
+
+fnf-root {
+
+  .fnf-border-right {
+    border-right: solid 1px var(--fnf-header-border-color);
+  }
+
+  .fnf-border-bottom {
+    border-bottom: solid 1px var(--fnf-header-border-color);
+  }
+
+  .fnf-active-panel {
+    .fnf-border-right {
+      border-right: solid 1px var(--fnf-activepanel-header-border-color);
+    }
+
+    .fnf-border-bottom {
+      border-bottom: solid 1px var(--fnf-activepanel-header-border-color);
+    }
+  }
+
+}

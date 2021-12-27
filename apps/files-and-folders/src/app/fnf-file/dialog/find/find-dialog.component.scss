@@ -1,0 +1,11 @@
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-dialog-content,
+div[mat-dialog-content] {
+  flex-grow: 1;
+  max-height: unset;
+  min-height: 235px;
+}

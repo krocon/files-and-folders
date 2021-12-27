@@ -1,0 +1,22 @@
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+fnf-root, fnf-edit {
+  max-height: 100vh;
+  height: 100vh;
+}
+
+.width-10px {
+  width: 10px;
+}

@@ -1,0 +1,60 @@
+<button
+  [matMenuTriggerFor]="menuMain"
+  aria-label="Main menu"
+  class="main-menu-fab fnf-active-background-color fnf-"
+  color=""
+  mat-mini-fab>
+  <mat-icon
+    [matBadge]="badge"
+    matBadgeColor="warn"
+    matBadgePosition="after">menu
+  </mat-icon>
+</button>
+
+<mat-menu #menuMain="matMenu">
+
+  <a [routerLink]=" ['file-content/' ] "
+     mat-menu-item>
+    <mat-icon>home</mat-icon>
+    Main
+  </a>
+
+  <!--a [routerLink]=" ['queue/' ] "
+     mat-menu-item>
+    <mat-icon>format_list_numbered</mat-icon>
+    Action Queue
+  </a-->
+
+  <mat-divider *ngIf="editData?.files?.length"></mat-divider>
+
+  <a *ngFor="let f of editData?.files; index as idx"
+     [routerLink]=" ['edit/', idx ] "
+     mat-menu-item>
+
+    <mat-icon>edit_note</mat-icon>
+    {{fixLabel(f.file)}}
+    <span *ngIf="f.unsaved" class="fnf-active-color pl-2"> *</span>
+  </a>
+
+  <mat-divider></mat-divider>
+
+  <!--a [routerLink]=" ['setup/' ] "
+     mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    Settings
+  </a-->
+
+  <!-- TODO a [routerLink]=" ['customcss/'] "
+     mat-menu-item
+     target="_blank">
+    <mat-icon>palette</mat-icon>
+    Custom Colors
+  </a-->
+
+  <a [routerLink]=" ['about/'] "
+     mat-menu-item>
+    <mat-icon>question_answer</mat-icon>
+    About
+  </a>
+
+</mat-menu>

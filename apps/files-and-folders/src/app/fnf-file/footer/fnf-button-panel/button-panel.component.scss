@@ -1,0 +1,45 @@
+
+.fnf-button-panel-div {
+  display: flex;
+  flex-flow: column wrap;
+
+  .cmd-panel {
+    flex-grow: 1;
+    display: flex;
+  }
+
+  .flexbox-panel {
+    padding-top: 10px;
+    padding-left: 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    align-content: center;
+
+    button {
+      border-color: var(--fnf-footer-button-border-color);
+      background-color: var(--fnf-footer-button-bg-color);
+      color: var(--fnf-footer-button-fg-color);
+
+      &.mat-button-disabled {
+        opacity: 0.3;
+      }
+
+      b {
+        margin-right: 5px;
+        font-weight: normal !important;
+        font-stretch: 90%;
+      }
+    }
+
+    .flexbox-item {
+      flex: 0 1 auto;
+      margin-left: 10px;
+      margin-right: 10px;;
+      margin-bottom: 10px;;
+    }
+  }
+
+}

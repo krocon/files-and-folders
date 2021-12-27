@@ -1,0 +1,143 @@
+<div class="fnf-custom-css-div flex flex-col h-full">
+
+  <div class="filter-div pt-4 pl-4 flex-row h-20 flex gap-4 content-center">
+
+    <button [matMenuTriggerFor]="menuSettings" class="flexbox-item" mat-stroked-button>
+      <mat-icon>palette</mat-icon>
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #menuSettings="matMenu">
+      <button (click)="setTheme(th)" *ngFor="let th of themes" mat-menu-item>
+        L&F {{th}}
+      </button>
+    </mat-menu>
+
+    <mat-form-field class="w-32 bg-transparent">
+      <mat-label>Area</mat-label>
+      <mat-select
+        (valueChange)="filterChanged.next($event)"
+        [(ngModel)]="filter.area">
+        <mat-option [value]="'all'">All Areas</mat-option>
+        <mat-option *ngFor="let a of areas" [innerText]="a" [value]="a"></mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="bg-transparent">
+      <mat-label>Type</mat-label>
+      <mat-select
+        (valueChange)="filterChanged.next($event)"
+        [(ngModel)]="filter.type">
+        <mat-option [value]="'all'">All Types</mat-option>
+        <mat-option *ngFor="let t of types" [innerText]="t" [value]="t"></mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="db-form-field-name bg-transparent">
+      <input
+        (keyup)="filterChanged.next($event)"
+        [(ngModel)]="filter.text"
+        autocapitalize="off"
+        autocomplete="off"
+        matInput
+        name="text"
+        placeholder="Text"
+        spellcheck="false"
+        type="text">
+      <button
+        (click)="resetFilter()"
+        [disabled]="!filter.text"
+        color="primary"
+        mat-icon-button
+        matSuffix>
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+
+    <button (click)="resetFilter()" mat-button>
+      Reset
+    </button>
+
+    <span class="flex-grow"></span>
+
+    <button (click)="selectVisible()" mat-stroked-button>
+      Select Visible
+    </button>
+
+    <button (click)="deSelectAll()" mat-stroked-button>
+      Deselect All
+    </button>
+  </div>
+
+  <div class="flex-row flex-grow">
+    <ag-grid-angular
+      (cellFocused)="onCellFocused($event)"
+      (componentStateChanged)="onComponentStateChanged($event)"
+      (gridReady)="onGridReady($event)"
+      (modelUpdated)="onGridModelUpdatet($event)"
+      (rowDoubleClicked)="rowDoubleClicked($event)"
+      (selectionChanged)="onSelectionChanged($event)"
+      [columnDefs]="columnDefs"
+
+      [defaultColDef]="defaultColDef"
+      [gridOptions]="gridOptions"
+      [headerHeight]="32"
+      [overlayLoadingTemplate]="'<span class=\'ag-overlay-loading-center\'>Loading...</span>'"
+      [overlayNoRowsTemplate]="'<span>-</span>'"
+      [rowData]="rowData"
+
+      [rowHeight]="32"
+      [rowMultiSelectWithClick]="false"
+
+      [rowSelection]="'multiple'"
+      class="ag-theme-material fnf-grid"
+    >
+    </ag-grid-angular>
+  </div>
+
+  <div class="footer-div flex flex-row pl-40 gap-4 content-center pt-4">
+
+    <mat-form-field class="bg-transparent">
+      <mat-label>Used Colors</mat-label>
+      <mat-select (valueChange)="onSelectboxColorsChanged($event)">
+        <!--        <mat-option value="custom">Custom vis Color Picker</mat-option>-->
+        <mat-option *ngFor="let k of colors" [value]="k">
+          <div class="flex flex-row">
+            <div [style.background]="k" class="flex w-10 h-10 mt-1">&nbsp;&nbsp;&nbsp;</div>
+            <div class="flex pl-4">{{k}}</div>
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-500px bg-transparent">
+      <mat-label>CSS Vars</mat-label>
+      <mat-select (valueChange)="onSelectboxVarsChanged($event)">
+        <mat-option *ngFor="let k of keys" [value]="k">
+          <div class="flex flex-row">
+            <div class="flex w-10 h-10 mt-1" style="background-color:var({{k}})">&nbsp;&nbsp;&nbsp;</div>
+            <div class="pl-4 w-40 flex-grow">{{k}}</div>
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <input
+      (colorPickerChange)="onColorPickerChange($event)"
+      [(colorPicker)]="color"
+      [style.background]="color"
+      [title]="color"
+      class="color-picker-input"
+      matInput />
+
+    &nbsp;
+    &nbsp;
+    <small>{{color}}</small>
+
+    <button (click)="debug()" mat-icon-button>
+      <mat-icon>bug_report</mat-icon>
+    </button>
+
+  </div>
+
+</div>
