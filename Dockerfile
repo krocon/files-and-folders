@@ -13,7 +13,7 @@ RUN apt-get install rsync -y
 
 COPY --chown=node:node . .
 
-RUN npm install --production --force
+RUN npm install --force
 
 RUN npm run build:update-version
 
