@@ -1,5 +1,8 @@
 FROM node:14-slim as production
 
+# Optimise for production
+ENV NODE_ENV production
+
 LABEL "nick"="fnf"
 
 ENV NODE_ENV production
@@ -10,9 +13,12 @@ RUN apt-get update
 
 RUN apt-get install rsync -y
 
-COPY . .
+COPY --chown=node:node . .
 
-RUN npm ci --only=production --force
+RUN npm install --production --force
+
+# friends don’t let friends run containers as root!
+USER node
 
 EXPOSE 3333 3334
 
