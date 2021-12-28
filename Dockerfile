@@ -5,17 +5,21 @@ ENV NODE_ENV production
 
 LABEL "nick"="fnf"
 
-ENV NODE_ENV production
-
 WORKDIR /usr/src/app
 
 RUN apt-get update
 
 RUN apt-get install rsync -y
 
-COPY --chown=node:node . /usr/src/app
+COPY --chown=node:node . .
 
 RUN npm install --production --force
+
+RUN npm run build:update-version
+
+RUN npm run build
+
+RUN npm run build:api
 
 # friends don’t let friends run containers as root!
 USER node
