@@ -4,7 +4,7 @@ export class Config {
     public incompatiblePaths: string[] = [],
     public containerPaths: string[] = [],
     public startPath = '',
-    public docker = false
+    public dockerRoot = '/fnf'
   ) {
   }
 

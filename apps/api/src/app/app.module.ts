@@ -19,8 +19,9 @@ import {Config} from "@fnf/fnf-data";
 const config = new Config(
   process.env.FNF_INCOMPATIBLE_PATHS ? process.env.FNF_INCOMPATIBLE_PATHS.split(",") : [],
   process.env.FNF_CONTAINER_PATHS ? process.env.FNF_CONTAINER_PATHS.split(",") : [],
-  process.env.FNF_START_PATH ? process.env.FNF_START_PATH : '/',
-  process.env.FNF_DOCKER ? process.env.FNF_DOCKER.toLowerCase() === 'true': false,
+  process.env.FNF_START_PATH ? process.env.FNF_START_PATH :
+    process.env.FNF_CONTAINER_PATHS ? process.env.FNF_CONTAINER_PATHS.split(",")[0] : '/',
+  process.env.FNF_DOCKER_ROOT ? process.env.FNF_DOCKER_ROOT: undefined,
 );
 
 @Module({
@@ -30,7 +31,7 @@ const config = new Config(
       config
     ),
     DrivesModule.forRoot(
-      config.containerPaths
+      config
     ),
     FileModule,
     FileActionModule,

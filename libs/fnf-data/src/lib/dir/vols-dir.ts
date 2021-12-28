@@ -1,1 +1,1 @@
-export const VOLS_DIR = "/fnf/vols";
+export const VOLS_DIR = "/fnf";

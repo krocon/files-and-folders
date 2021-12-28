@@ -1,50 +1,38 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import * as os from 'os';
 
-import { spawn } from 'child_process';
-import { from, Observable, of } from 'rxjs';
+import {spawn} from 'child_process';
+import {from, Observable, of} from 'rxjs';
 import * as fse from 'fs-extra';
-import * as path from 'path';
-import { fixPath, VOLS_DIR } from '@fnf/fnf-data';
+import {Config, fixPath} from '@fnf/fnf-data';
 
 export type DrivesCallbackFn = (eror: number, sysinfo: string[]) => void;
 
 @Injectable()
 export class DrivesService {
 
-  static restrictedPaths: string[];
+  static config: Config = new Config();
 
-  containerVols: string[];
-  containerMode = false;
-
-
-  constructor() {
-    this.containerMode = this.exists(VOLS_DIR);
-    if (this.containerMode) {
-      try {
-        const ffs = fse.readdirSync(VOLS_DIR);
-        this.containerVols = ffs
-          .filter(n => n.indexOf('.') === -1)
-          .map(n => path.join(VOLS_DIR, '/', n));
-      } catch (e) {
-        // ignore
-      }
-    }
+  get config(): Config {
+    return DrivesService.config;
   }
 
-
   getData(): Observable<string[]> {
-    if (this.containerVols?.length) {
-      return of(this.containerVols);
+    if (this.config.containerPaths?.length) {
+      return of(this.config.containerPaths);
     }
     return from(this.getDrivesPromise());
   }
 
-  hasRestrictedPaths(): boolean {
-    return !!DrivesService.restrictedPaths?.length;
+  getContainerRoot(): string | undefined {
+    return this.config.dockerRoot;
   }
 
-  exists(path: string) {
+  hasContainerPaths(): boolean {
+    return !!this.config.containerPaths?.length;
+  }
+
+  exists(path: string): boolean {
     try {
       return fse.existsSync(path);
     } catch (e) {
@@ -61,7 +49,7 @@ export class DrivesService {
    *
    * @param path  the path (if exists) , else the next possible path
    */
-  checkPath(path: string): string {
+  checkAndFixPath(path: string): string {
     path = fixPath(path);
 
     while (path.length > 0) {
@@ -85,15 +73,15 @@ export class DrivesService {
     let stdout = '';
     const list = spawn('cmd');
 
-    list.stdout.on('data', function(data) {
+    list.stdout.on('data', function (data) {
       stdout += data;
     });
 
-    list.stderr.on('data', function(data) {
+    list.stderr.on('data', function (data) {
       console.error('stderr: ' + data);
     });
 
-    list.on('exit', function(code) {
+    list.on('exit', function (code) {
       if (code == 0) {
         let data = stdout.split('\r\n');
         data = data.splice(4, data.length - 7);

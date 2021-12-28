@@ -22,6 +22,6 @@ export class DrivesController {
 
   @Post("checkpath")
   checkPath(@MessageBody() para: DirPara): string {
-    return this.drivesService.checkPath(para.path);
+    return this.drivesService.checkAndFixPath(para.path);
   }
 }
