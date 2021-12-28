@@ -12,7 +12,7 @@ RUN apt-get install rsync -y
 
 COPY . .
 
-RUN npm ci --only=production
+RUN npm ci --only=production --force
 
 EXPOSE 3333 3334
 
