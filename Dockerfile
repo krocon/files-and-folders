@@ -1,9 +1,29 @@
+FROM node:14 as builder
+
+ENV NODE_ENV build
+
+# Create app directory
+WORKDIR /usr/src/app
+
+RUN apt-get update
+
+RUN apt-get install python3 -y
+
+# Bundle app source
+COPY . .
+
+RUN npm install --force \
+    && npm run build-api \
+    && npm run build \
+    && npm prune --production
+
+# ---
+
 FROM node:14-slim as production
 
-# Optimise for production
-ENV NODE_ENV production
-
 LABEL "nick"="fnf"
+
+ENV NODE_ENV production
 
 WORKDIR /usr/src/app
 
@@ -11,16 +31,13 @@ RUN apt-get update
 
 RUN apt-get install rsync -y
 
-COPY --chown=node:node . .
+COPY package*.json ./
 
-RUN npm install --force
+RUN npm install --only=production --force
 
-RUN npm run build
+COPY . .
 
-RUN npm run build:api
-
-# friends don’t let friends run containers as root!
-USER node
+COPY --from=builder /usr/src/app/dist ./dist
 
 EXPOSE 3333 3334
 
