@@ -35,9 +35,12 @@ COPY package*.json ./
 
 RUN npm install --only=production --force
 
-COPY . .
+COPY --chown=node:node . .
 
-COPY --from=builder /usr/src/app/dist ./dist
+COPY --chown=node:node --from=builder /usr/src/app/dist ./dist
+
+# friends don’t let friends run containers as root!
+USER node
 
 EXPOSE 3333 3334
 
