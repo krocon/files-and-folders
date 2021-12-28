@@ -15,8 +15,6 @@ COPY --chown=node:node . .
 
 RUN npm install --force
 
-RUN npm run build:update-version
-
 RUN npm run build
 
 RUN npm run build:api
