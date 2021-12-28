@@ -12,6 +12,8 @@ RUN apt-get install rsync -y
 
 COPY . .
 
+RUN npm ci --only=production
+
 EXPOSE 3333 3334
 
 CMD ["node", "dist/apps/api/main.js"]
