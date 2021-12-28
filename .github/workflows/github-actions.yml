@@ -1,7 +1,7 @@
 name: docker-build-fnf
 on: [push]
 jobs:
-  check-bats-version:
+  install_build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,12 +14,12 @@ jobs:
       - run: npm run build
       - run: npm prune --production
 
-  push_to_Docker_Hub:
+  push_to_docker:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # build docker image and push to docker hub
     # only if the app build and test successfully
-    needs: [build]
+    needs: [install_build]
 
     steps:
       - name: checkout repo
