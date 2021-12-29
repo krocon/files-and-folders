@@ -5,11 +5,19 @@
 <mat-menu #menuFavs="matMenu" class="fnf-file-menu">
 
   <button
+    (click)="onItemClicked(dockerRoot)"
+    *ngIf="dockerRoot"
+    mat-menu-item>
+    <mat-icon>home</mat-icon>
+    <span>root</span>
+  </button>
+
+  <button
     (click)="onItemClicked(drv)"
     *ngFor="let drv of winDrives"
     mat-menu-item>
     <mat-icon>save</mat-icon>
-    <span [innerText]="drv"></span>
+    <span [innerText]="drv | deleteDockerRoot"></span>
   </button>
 
   <mat-divider *ngIf="winDrives?.length && favs?.length"></mat-divider>
@@ -19,7 +27,7 @@
     *ngFor="let fav of favs"
     mat-menu-item>
     <mat-icon>star</mat-icon>
-    <span [innerText]="fav"></span>
+    <span [innerText]="fav | deleteDockerRoot"></span>
   </button>
 
   <mat-divider *ngIf="favs?.length && latest?.length"></mat-divider>
@@ -29,7 +37,7 @@
     *ngFor="let latest of latest"
     mat-menu-item>
     <mat-icon>schedule</mat-icon>
-    <span [innerText]="latest"></span>
+    <span [innerText]="latest | deleteDockerRoot"></span>
   </button>
 
 </mat-menu>

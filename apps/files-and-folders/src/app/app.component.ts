@@ -7,7 +7,8 @@ import {EditDataService} from "./fnf-edit/fnf-edit-data/edit-data.service";
 import {FileSystemService} from "./service/fnf-file-system/file-system.service";
 import {FilePageDataService} from "./service/fnf-page-data/file-page-data.service";
 import {ConfigService} from "./service/fnf-config/config.service";
-import { Config } from "@fnf/fnf-data";
+import {Config} from "@fnf/fnf-data";
+import {DockerRootDeletePipe} from "./fnf-file/pipe/docker-root-delete.pipe";
 
 @Component({
   selector: "fnf-root",
@@ -44,6 +45,7 @@ export class AppComponent implements OnInit {
       .subscribe(config => {
         subs.unsubscribe();
         console.info('        > Config       :', config);
+        DockerRootDeletePipe.dockerRoot = config.dockerRoot;
     });
 
     // init look and feel (LaF):

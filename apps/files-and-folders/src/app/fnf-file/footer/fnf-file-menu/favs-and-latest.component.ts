@@ -1,7 +1,7 @@
-import { Component, Input } from "@angular/core";
-import { FavsAndLatestEventService } from "./event/favs-and-latest-event.service";
-import { FavsAndLatestEvent } from "./event/favs-and-latest-event";
-import { PanelIndex } from "../../../service/fnf-page-data/data/panel-index";
+import {Component, Input} from "@angular/core";
+import {FavsAndLatestEventService} from "./event/favs-and-latest-event.service";
+import {FavsAndLatestEvent} from "./event/favs-and-latest-event";
+import {PanelIndex} from "../../../service/fnf-page-data/data/panel-index";
 
 
 @Component({
@@ -15,6 +15,7 @@ export class FavsAndLatestComponent {
   @Input() winDrives: string[] = [];
   @Input() favs: string[] = [];
   @Input() latest: string[] = [];
+  @Input() dockerRoot: string = '';
 
   private alive = true;
 

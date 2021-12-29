@@ -1,8 +1,8 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from "@angular/core";
-import { TabData } from "../../../service/fnf-page-data/data/tab.data";
-import { Sysinfo, SysinfoIf } from "@fnf/fnf-data";
-import { TabsPanelData } from "../../../service/fnf-page-data/data/tabs-panel.data";
-import { PanelIndex } from "../../../service/fnf-page-data/data/panel-index";
+import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from "@angular/core";
+import {TabData} from "../../../service/fnf-page-data/data/tab.data";
+import {Sysinfo, SysinfoIf} from "@fnf/fnf-data";
+import {TabsPanelData} from "../../../service/fnf-page-data/data/tabs-panel.data";
+import {PanelIndex} from "../../../service/fnf-page-data/data/panel-index";
 
 
 @Component({
@@ -15,6 +15,7 @@ export class DirTabsComponent {
   @Input() panelIndex: PanelIndex = 0;
   @Input() selected = false;
   @Input() winDrives: string[] = [];
+  @Input() dockerRoot: string = '';
   @Input() latest: string[] = [];
   @Input() favs: string[] = [];
   @Input() sysinfo: SysinfoIf = new Sysinfo();
