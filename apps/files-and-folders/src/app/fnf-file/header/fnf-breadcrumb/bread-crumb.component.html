@@ -1,23 +1,34 @@
-<span *ngFor="let s of subs; let i = index; last as isLast">
-
-  <button
-    (click)="onPathClicked(i)"
-    *ngIf="s"
-    [ngClass]="{'fnf-active-fg-color': isLast && selected}"
-    class="link"
-    mat-button>
-  {{s}}
-  </button>
-
-  <button
-    (click)="onRootClicked()"
-    *ngIf="!s && i===0"
-    class="pr-0 pl-0"
-    mat-icon-button>
-    <mat-icon>home</mat-icon>
-  </button>
-  <span *ngIf="i < subs.length-1" class="pl-0.5 pr-0.5">/</span>
+<span *ngIf="dockerRoot">
+    <button
+      (click)="onRootClicked()"
+      class="pr-0 pl-0"
+      mat-icon-button>
+      <mat-icon>home</mat-icon>
+    </button>
 </span>
+<span *ngFor="let s of subs; let i = index; last as isLast">
+  <span *ngIf="(i>=dockerRootIndex)">
+    <button
+      (click)="onPathClicked(i)"
+      *ngIf="s"
+      [ngClass]="{'fnf-active-fg-color': isLast && selected}"
+      class="link"
+      mat-button>
+    {{s}}
+    </button>
+
+    <button
+      (click)="onRootClicked()"
+      *ngIf="!s && i===0"
+      class="pr-0 pl-0"
+      mat-icon-button>
+      <mat-icon>home</mat-icon>
+    </button>
+    <span *ngIf="i < subs.length-1" class="pl-0.5 pr-0.5">/</span>
+  </span>
+</span>
+
+
 
 <button (click)="onToggleFavClicked()" mat-icon-button *ngIf="favIconVisible">
   <mat-icon

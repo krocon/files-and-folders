@@ -1,5 +1,5 @@
-import { Component, Input, Output } from "@angular/core";
-import { Subject } from "rxjs";
+import {Component, Input, Output} from "@angular/core";
+import {Subject} from "rxjs";
 
 
 @Component({
@@ -8,13 +8,28 @@ import { Subject } from "rxjs";
   styleUrls: ["./bread-crumb.component.scss"]
 })
 export class BreadCrumbComponent {
-
   @Output() pathClicked = new Subject<string>();
   @Output() toggleFavClicked = new Subject<string>();
   @Input() selected = false;
   @Input() favs: string[] = [];
+
   subs: string[] = [];
   favIconVisible = true;
+  dockerRootIndex = 0;
+
+  private _dockerRoot: string = '';
+
+  get dockerRoot(): string {
+    return this._dockerRoot;
+  }
+
+  @Input()
+  set dockerRoot(value: string) {
+    this._dockerRoot = value;
+    if (value) {
+      this.dockerRootIndex = value.split('/').length;
+    }
+  }
 
   private _path = "";
 
@@ -40,7 +55,8 @@ export class BreadCrumbComponent {
   }
 
   onRootClicked() {
-    this.pathClicked.next(this.getRootFromPath(this._path));
+    const root = this._dockerRoot ? this._dockerRoot : this.getRootFromPath(this._path);
+    this.pathClicked.next(root);
   }
 
   private getRootFromPath(path: string): string {

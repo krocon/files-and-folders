@@ -1,22 +1,23 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FilePageDataService } from "../service/fnf-page-data/file-page-data.service";
-import { takeWhile, tap } from "rxjs/operators";
-import { FilePageData } from "../service/fnf-page-data/data/file-page.data";
-import { SysinfoService } from "../service/fnf-sysinfo/sysinfo.service";
-import { FileItemIf, FindData, Sysinfo, SysinfoIf } from "@fnf/fnf-data";
-import { FavsAndLatestEventService } from "./footer/fnf-file-menu/event/favs-and-latest-event.service";
-import { FavDataService } from "../service/fnf-page-data/service/fav-data.service";
-import { LatestDataService } from "../service/fnf-page-data/service/latest-data.service";
-import { ShortcutService } from "../service/fnf-shortcut/shortcut.service";
-import { ActionService } from "../service/fnf-action/action.service";
-import { TabData } from "../service/fnf-page-data/data/tab.data";
-import { PanelIndex } from "../service/fnf-page-data/data/panel-index";
-import { TabsPanelData } from "../service/fnf-page-data/data/tabs-panel.data";
-import { PanelSelectionService } from "../service/fnf-page-data/service/panel-selection.service";
-import { SelectionLabelData } from "../service/fnf-page-data/data/selection-label.data";
-import { SelectionEvent } from "../service/fnf-page-data/data/selection-event";
-import { CellFocusedEvent } from "ag-grid-community";
-import { FileSystemService } from "../service/fnf-file-system/file-system.service";
+import {Component, OnDestroy, OnInit} from "@angular/core";
+import {FilePageDataService} from "../service/fnf-page-data/file-page-data.service";
+import {takeWhile, tap} from "rxjs/operators";
+import {FilePageData} from "../service/fnf-page-data/data/file-page.data";
+import {SysinfoService} from "../service/fnf-sysinfo/sysinfo.service";
+import {FileItemIf, FindData, Sysinfo, SysinfoIf} from "@fnf/fnf-data";
+import {FavsAndLatestEventService} from "./footer/fnf-file-menu/event/favs-and-latest-event.service";
+import {FavDataService} from "../service/fnf-page-data/service/fav-data.service";
+import {LatestDataService} from "../service/fnf-page-data/service/latest-data.service";
+import {ShortcutService} from "../service/fnf-shortcut/shortcut.service";
+import {ActionService} from "../service/fnf-action/action.service";
+import {TabData} from "../service/fnf-page-data/data/tab.data";
+import {PanelIndex} from "../service/fnf-page-data/data/panel-index";
+import {TabsPanelData} from "../service/fnf-page-data/data/tabs-panel.data";
+import {PanelSelectionService} from "../service/fnf-page-data/service/panel-selection.service";
+import {SelectionLabelData} from "../service/fnf-page-data/data/selection-label.data";
+import {SelectionEvent} from "../service/fnf-page-data/data/selection-event";
+import {CellFocusedEvent} from "ag-grid-community";
+import {FileSystemService} from "../service/fnf-file-system/file-system.service";
+import {ConfigService} from "../service/fnf-config/config.service";
 
 
 @Component({
@@ -41,6 +42,7 @@ export class FilesComponent implements OnInit, OnDestroy {
   public sysinfo: SysinfoIf = new Sysinfo();
   public latest: string[] = [];
   public favs: string[] = [];
+  public dockerRoot = '';
 
 
   public selectedFileItems0: FileItemIf[] = [];
@@ -65,12 +67,21 @@ export class FilesComponent implements OnInit, OnDestroy {
     private readonly shortcutService: ShortcutService,
     private readonly actionService: ActionService,
     private readonly panelSelectionService: PanelSelectionService,
-    private readonly fileSystemService: FileSystemService
+    private readonly fileSystemService: FileSystemService,
+    private readonly configService: ConfigService,
   ) {
   }
 
   ngOnInit(): void {
     this.updatePathes();
+    this.configService
+      .getConfig()
+      .pipe(
+        takeWhile(() => this.alive)
+      )
+      .subscribe(config => {
+        this.dockerRoot = config.dockerRoot;
+      });
 
     this.panelSelectionService
       .valueChanges()
