@@ -37,7 +37,9 @@ const config = new Config(
     FileActionModule,
     WalkModule,
     FindModule,
-    DirModule,
+    DirModule.forRoot(
+      config
+    ),
     CustomCssModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, "..", "files-and-folders")

@@ -12,6 +12,7 @@ export type DrivesCallbackFn = (eror: number, sysinfo: string[]) => void;
 export class DrivesService {
 
   static config: Config = new Config();
+  readonly win = os.platform().indexOf('win') !== 0;
 
   get config(): Config {
     return DrivesService.config;
@@ -33,8 +34,13 @@ export class DrivesService {
   }
 
   exists(path: string): boolean {
+    if (this.config && this.config.dockerRoot &&
+      (path.indexOf(this.config.dockerRoot) !== 0)) {
+      return false;
+    }
     try {
       return fse.existsSync(path);
+
     } catch (e) {
       try {
         // zip-Url?
@@ -53,20 +59,36 @@ export class DrivesService {
     path = fixPath(path);
 
     while (path.length > 0) {
+      if (this.win) {
+        if (path.length === 2 && path[1] === ':') {
+          path = path + '/'; //  'c:' ->  'c:/'
+        }
+      }
       if (this.exists(path)) {
         return path;
+
       }
       if (path.indexOf('/') > -1) {
         path = path.substr(0, path.lastIndexOf('/'));
       } else {
-        return '/';
+        return this.getRoot();
       }
+    }
+    return this.getRoot();
+  }
+
+  private getRoot(): string {
+    if (this.config && this.config.dockerRoot) {
+      return this.config.dockerRoot;
+    }
+    if (this.win) {
+      return 'c:/';
     }
     return '/';
   }
 
   private getWinDrives(callback: DrivesCallbackFn) {
-    if (os.platform().indexOf('win') !== 0) {
+    if (this.win) {
       return callback(null, []);
     } // for windows only.
 
