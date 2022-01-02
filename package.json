@@ -10,7 +10,8 @@
     "build": "nx build",
     "build-api": "nx run api:build",
     "test": "nx test",
-    "docker:kill": "docker kill fnf",
+    "docker:kill": "docker kill files-and-folders",
+    "docker:kill2": "docker kill $(docker ps | grep  ' krocon/files-and-folders ' | awk '{ print $1 }') ",
     "docker:container-ls": "docker container ls",
     "docker:container-remove": "docker container rm fnf && docker image rm krocon/files-and-folders -f",
     "docker:images": "docker images",
@@ -22,6 +23,7 @@
     "docker:imac:imac-run": "docker run -p 3333:3333 -p 3334:3334 -v /Users/marckronberg:/files-and-folders/vols/marckronberg -v /Users/Shared:/files-and-folders/vols/Shared --name fnf --env=FNF_INCOMPATIBLE_PATHS='' -d krocon/files-and-folders",
     "docker-restart": "docker container start fnf",
     "docker:print-container-id": "docker ps | grep  ' krocon/files-and-folders ' | awk '{ print $1 }'",
+
     "docker:logs": "docker logs $(docker ps | grep  ' krocon/files-and-folders ' | awk '{ print $1 }') ",
     "docker:logs-f": "docker logs $(docker ps | grep  ' krocon/files-and-folders ' | awk '{ print $1 }') -f",
     "deploy": "npm run build:update-version && npm run build && npm run build-api && node copy2files-and-folders.js"
