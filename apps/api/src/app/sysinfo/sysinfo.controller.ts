@@ -1,7 +1,7 @@
-import { Controller, Get } from "@nestjs/common";
-import { SysinfoService } from "./sysinfo.service";
-import { Observable } from "rxjs";
-import { SysinfoIf } from "@fnf/fnf-data";
+import {Controller, Get} from "@nestjs/common";
+import {SysinfoService} from "./sysinfo.service";
+import {Observable} from "rxjs";
+import {SysinfoIf} from "@fnf/fnf-data";
 
 @Controller()
 export class SysinfoController {
@@ -18,6 +18,7 @@ export class SysinfoController {
 
   @Get("firststartfolder")
   getFirstStartFolder(): string {
-    return this.sysinfoService.getFirstStartFolder();
+    let firstStartFolder = this.sysinfoService.getFirstStartFolder();
+    return `"${firstStartFolder}"`;
   }
 }

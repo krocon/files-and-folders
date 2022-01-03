@@ -9,6 +9,7 @@ import {FilePageDataService} from "./service/fnf-page-data/file-page-data.servic
 import {ConfigService} from "./service/fnf-config/config.service";
 import {Config} from "@fnf/fnf-data";
 import {DockerRootDeletePipe} from "./fnf-file/pipe/docker-root-delete.pipe";
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: "fnf-root",
@@ -17,7 +18,7 @@ import {DockerRootDeletePipe} from "./fnf-file/pipe/docker-root-delete.pipe";
 })
 export class AppComponent implements OnInit {
 
-  config : Config = new Config();
+  config: Config = new Config();
 
   constructor(
     private readonly lookAndFeelService: LookAndFeelService,
@@ -46,7 +47,7 @@ export class AppComponent implements OnInit {
         subs.unsubscribe();
         console.info('        > Config       :', config);
         DockerRootDeletePipe.dockerRoot = config.dockerRoot;
-    });
+      });
 
     // init look and feel (LaF):
     this.lookAndFeelService.init();
@@ -54,12 +55,22 @@ export class AppComponent implements OnInit {
     // init shortcuts:
     this.shortcutService.init();
 
+    this.shortcutService.onActionId$.subscribe(console.info); // TODO weg
+
+    this.initTabs();
+  }
+
+  private initTabs() {
     // first start ever?
-    this.filePageDataService.getValue()
     if (this.filePageDataService.getValue().default) {
+      console.info('        > Init Tabs.....');
       const subs = this.sysinfoService
         .getFirstStartFolder()
+        .pipe(
+          tap(console.info)
+        )
         .subscribe(startFolder => {
+          console.info('        > First Start  :', startFolder);
           subs.unsubscribe();
           const v = this.filePageDataService.getValue();
           v.default = false;
@@ -69,5 +80,4 @@ export class AppComponent implements OnInit {
         });
     }
   }
-
 }

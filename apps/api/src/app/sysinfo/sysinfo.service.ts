@@ -10,6 +10,7 @@ import {SysInfoCallbackFn} from "./sysInfo-callback.fn";
 const env = process.env;
 const FNF_START_PATH = env.FNF_START_PATH;
 const FNF_CONTAINER_PATHS = env.FNF_CONTAINER_PATHS;
+const platform = os.platform();
 
 @Injectable()
 export class SysinfoService {
@@ -37,7 +38,7 @@ export class SysinfoService {
       return cb(null, this.systemInfo);
     }
 
-    const platform = os.platform();
+
     const ret = new Sysinfo();
     ret.type = os.type();
     ret.platform = platform;
@@ -90,8 +91,11 @@ export class SysinfoService {
   }
 
   getFirstStartFolder(): string {
+    const homeDir = os.homedir()?.replace(/\\/g, "/");
+    const win = platform.indexOf("win") === 0;
     return FNF_START_PATH ? FNF_START_PATH :
       FNF_CONTAINER_PATHS ? FNF_CONTAINER_PATHS.split(',')[0] :
-        '/';
+        win ? homeDir :
+          '/';
   }
 }
