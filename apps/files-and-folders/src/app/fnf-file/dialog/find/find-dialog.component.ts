@@ -1,9 +1,9 @@
-import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
-import { FormControl, Validators } from "@angular/forms";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { takeWhile } from "rxjs/operators";
-import { FormGroupTyped } from "../../../common/form-group-typed";
-import { FindDialogData } from "@fnf/fnf-data";
+import {Component, Inject, OnDestroy, OnInit} from "@angular/core";
+import {FormControl, Validators} from "@angular/forms";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {takeWhile} from "rxjs/operators";
+import {FormGroupTyped} from "../../../common/form-group-typed";
+import {FindDialogData} from "@fnf/fnf-data";
 
 @Component({
   selector: "fnf-find-dialog",

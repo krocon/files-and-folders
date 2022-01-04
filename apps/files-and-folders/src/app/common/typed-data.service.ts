@@ -1,6 +1,6 @@
-import { BehaviorSubject } from "rxjs";
-import { TypedDataOptions } from "./typed-data-options";
-import { TypeDataDefaultOptions } from "./type-data-default-options";
+import {BehaviorSubject} from "rxjs";
+import {TypedDataOptions} from "./typed-data-options";
+import {TypeDataDefaultOptions} from "./type-data-default-options";
 
 export class TypedDataService<T> {
 

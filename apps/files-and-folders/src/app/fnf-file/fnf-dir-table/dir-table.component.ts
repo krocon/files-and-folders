@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, Output } from "@angular/core";
+import {Component, Input, OnDestroy, OnInit, Output} from "@angular/core";
 import {
   CellFocusedEvent,
   ColumnApi,
@@ -24,18 +24,18 @@ import {
   SEARCH_SYMBOL,
   ZipUrlInfo
 } from "@fnf/fnf-data";
-import { dirTableColumnDefs } from "./columndefs/dir-table-column-defs";
-import { fromEvent, Subject, Subscription } from "rxjs";
-import { RowNode } from "ag-grid-community/dist/lib/entities/rowNode";
-import { TableSelectionService } from "../../service/fnf-table-selection/table-selection.service";
-import { debounceTime, filter, takeWhile } from "rxjs/operators";
-import { GridSelectionStoreService } from "./service/grid-selection-store.service";
-import { PanelIndex } from "../../service/fnf-page-data/data/panel-index";
-import { SelectionEvent } from "../../service/fnf-page-data/data/selection-event";
-import { GridSelectionCountService } from "./service/grid-selection-count.service";
-import { FileSystemService } from "../../service/fnf-file-system/file-system.service";
-import { DOT_DOT } from "./columndefs/dot-dot";
-import { FindSocketService } from "../../service/fnf-find/find.socketio.service";
+import {dirTableColumnDefs} from "./columndefs/dir-table-column-defs";
+import {fromEvent, Subject, Subscription} from "rxjs";
+import {RowNode} from "ag-grid-community/dist/lib/entities/rowNode";
+import {TableSelectionService} from "../../service/fnf-table-selection/table-selection.service";
+import {debounceTime, filter, takeWhile} from "rxjs/operators";
+import {GridSelectionStoreService} from "./service/grid-selection-store.service";
+import {PanelIndex} from "../../service/fnf-page-data/data/panel-index";
+import {SelectionEvent} from "../../service/fnf-page-data/data/selection-event";
+import {GridSelectionCountService} from "./service/grid-selection-count.service";
+import {FileSystemService} from "../../service/fnf-file-system/file-system.service";
+import {DOT_DOT} from "./columndefs/dot-dot";
+import {FindSocketService} from "../../service/fnf-find/find.socketio.service";
 
 
 @Component({

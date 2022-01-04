@@ -9,6 +9,14 @@ export type ShortcutActionMapping = { [key: string]: string };
 })
 export class ShortcutListenService {
 
+  constructor(
+    private readonly eventManager: EventManager,
+    @Inject(DOCUMENT) private readonly document: Document,
+  ) {
+  }
+
+  private _shortcutActionMapping: ShortcutActionMapping = {};
+
   get shortcutActionMapping(): ShortcutActionMapping {
     return this._shortcutActionMapping;
   }
@@ -17,15 +25,6 @@ export class ShortcutListenService {
     this._shortcutActionMapping = value;
     this.init();
   }
-
-  private _shortcutActionMapping: ShortcutActionMapping = {};
-
-  constructor(
-    private readonly eventManager: EventManager,
-    @Inject(DOCUMENT) private readonly document: Document,
-  ) {
-  }
-
 
   init() {
     const map = this.shortcutActionMapping;

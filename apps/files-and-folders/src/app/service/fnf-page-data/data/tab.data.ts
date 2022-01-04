@@ -1,5 +1,5 @@
-import { TabMetaData } from "./tab-meta.data";
-import { FindData } from "@fnf/fnf-data";
+import {TabMetaData} from "./tab-meta.data";
+import {FindData} from "@fnf/fnf-data";
 
 export class TabData {
 

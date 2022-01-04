@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { LookAndFeelData } from "../../service/fnf-look-and-feel/look-and-feel.data";
-import { CustomCssItem } from "../data/custom-css-item.data";
-import { customCcsKeys } from "../data/custom-ccs-key.type";
-import { CssArea, cssAreas } from "../data/css-area.type";
-import { CssType } from "../data/css-type.type";
+import {Injectable} from "@angular/core";
+import {LookAndFeelData} from "../../service/fnf-look-and-feel/look-and-feel.data";
+import {CustomCssItem} from "../data/custom-css-item.data";
+import {customCcsKeys} from "../data/custom-ccs-key.type";
+import {CssArea, cssAreas} from "../data/css-area.type";
+import {CssType} from "../data/css-type.type";
 
 
 @Injectable({

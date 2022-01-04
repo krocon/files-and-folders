@@ -1,6 +1,6 @@
-import { CustomCcsKeyType } from "./custom-ccs-key.type";
-import { CssArea } from "./css-area.type";
-import { CssType } from "./css-type.type";
+import {CustomCcsKeyType} from "./custom-ccs-key.type";
+import {CssArea} from "./css-area.type";
+import {CssType} from "./css-type.type";
 
 
 export class CustomCssItem {

@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { ActionGatewayKeys as keys, DoEventIf, FilePara } from "@fnf/fnf-data";
-import { Observable } from "rxjs";
-import { Socket } from "ngx-socket-io";
+import {Injectable} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
+import {ActionGatewayKeys as keys, DoEventIf, FilePara} from "@fnf/fnf-data";
+import {Observable} from "rxjs";
+import {Socket} from "ngx-socket-io";
 
 
 @Injectable({

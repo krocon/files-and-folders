@@ -1,7 +1,7 @@
-import { Component, Inject } from "@angular/core";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { ConfirmationData } from "./data/confirmation.data";
-import { ButtonData } from "./data/button.data";
+import {Component, Inject} from "@angular/core";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {ConfirmationData} from "./data/confirmation.data";
+import {ButtonData} from "./data/button.data";
 
 @Component({
   selector: "fnf-confirmation-dialog",

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
+import {ComponentFixture, TestBed} from "@angular/core/testing";
 
-import { CustomCssComponent } from "./custom-css.component";
+import {CustomCssComponent} from "./custom-css.component";
 
 describe("CustomCssComponent", () => {
   let component: CustomCssComponent;

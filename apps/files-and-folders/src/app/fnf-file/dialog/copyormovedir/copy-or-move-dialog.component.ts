@@ -1,13 +1,13 @@
-import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { CopyOrMoveDialogData } from "./copy-or-move-dialog.data";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { FileItem, WalkData } from "@fnf/fnf-data";
-import { CommandService } from "../../../service/fnf-command/command.service";
-import { TableSelectionService } from "../../../service/fnf-table-selection/table-selection.service";
-import { WalkSocketService } from "../../../service/walk/walk.socketio.service";
-import { takeWhile } from "rxjs/operators";
-import { FileOperation } from "./file-operation";
+import {Component, Inject, OnDestroy, OnInit} from "@angular/core";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {CopyOrMoveDialogData} from "./copy-or-move-dialog.data";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {FileItem, WalkData} from "@fnf/fnf-data";
+import {CommandService} from "../../../service/fnf-command/command.service";
+import {TableSelectionService} from "../../../service/fnf-table-selection/table-selection.service";
+import {WalkSocketService} from "../../../service/walk/walk.socketio.service";
+import {takeWhile} from "rxjs/operators";
+import {FileOperation} from "./file-operation";
 
 @Component({
   selector: "fnf-copy-or-move-dialog",

@@ -8,10 +8,10 @@
         <fnf-bread-crumb
           (pathClicked)="onBreadcrumbClicked($event, 0)"
           (toggleFavClicked)="onToggleFavClicked($event)"
+          [dockerRoot]="dockerRoot"
           [favs]="favs"
           [ngClass]="{'fnf-active-panel':activePanelIndex===0}"
           [path]="path0"
-          [dockerRoot]="dockerRoot"
           [selected]="activePanelIndex===0">
         </fnf-bread-crumb>
       </div>
@@ -20,10 +20,10 @@
         <fnf-bread-crumb
           (pathClicked)="onBreadcrumbClicked($event, 1)"
           (toggleFavClicked)="onToggleFavClicked($event)"
+          [dockerRoot]="dockerRoot"
           [favs]="favs"
           [ngClass]="{'fnf-active-panel':activePanelIndex===1}"
           [path]="path1"
-          [dockerRoot]="dockerRoot"
           [selected]="activePanelIndex===1"
         ></fnf-bread-crumb>
       </div>
@@ -35,11 +35,11 @@
         <fnf-dir-tabs
           (dataChanged)="onTabDataChanged($event, 0)"
           (filterChanged)="onFilterChanged($event, 0)"
+          [dockerRoot]="dockerRoot"
           [favs]="favs"
           [latest]="latest"
           [ngClass]="{'fnf-active-panel':activePanelIndex===0}"
           [panelIndex]="0"
-          [dockerRoot]="dockerRoot"
           [selected]="activePanelIndex===0"
           [sysinfo]="sysinfo"
           [tabsPanelData]="filePageData.tabRows[0]"
@@ -52,11 +52,11 @@
         <fnf-dir-tabs
           (dataChanged)="onTabDataChanged($event, 1)"
           (filterChanged)="onFilterChanged($event, 1)"
+          [dockerRoot]="dockerRoot"
           [favs]="favs"
           [latest]="latest"
           [ngClass]="{'fnf-active-panel':activePanelIndex===1}"
           [panelIndex]="1"
-          [dockerRoot]="dockerRoot"
           [selected]="activePanelIndex===1"
           [sysinfo]="sysinfo"
           [tabsPanelData]="filePageData.tabRows[1]"
@@ -73,10 +73,10 @@
         (cellFocused)="onFocusChanged($event, 0)"
         (changeDir)="onChangeDir($event, 0)"
         (selectionChanged)="onSelectionChanged($event, 0)"
-        [dir]="path0"
         [counter]="counter"
-        [findData]="findData0"
+        [dir]="path0"
         [filterValue]="filterValue0"
+        [findData]="findData0"
         [focusRow]="focusRow0"
         [ngClass]="{'fnf-active-panel':activePanelIndex===0}"
         [panelIndex]="0"
@@ -91,10 +91,10 @@
         (cellFocused)="onFocusChanged($event, 1)"
         (changeDir)="onChangeDir($event, 1)"
         (selectionChanged)="onSelectionChanged($event, 1)"
-        [dir]="path1"
         [counter]="counter"
-        [findData]="findData1"
+        [dir]="path1"
         [filterValue]="filterValue1"
+        [findData]="findData1"
         [focusRow]="focusRow1"
         [ngClass]="{'fnf-active-panel':activePanelIndex===1}"
         [panelIndex]="1"

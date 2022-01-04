@@ -1,22 +1,22 @@
-import { Injectable } from "@angular/core";
-import { FilePageDataService } from "../fnf-page-data/file-page-data.service";
-import { LookAndFeelService } from "../fnf-look-and-feel/look-and-feel.service";
-import { ActionId } from "../fnf-action/fnf-action.enum";
-import { TableSelectionService } from "../fnf-table-selection/table-selection.service";
-import { PanelIndex } from "../fnf-page-data/data/panel-index";
-import { PanelSelectionService } from "../fnf-page-data/service/panel-selection.service";
-import { TabData } from "../fnf-page-data/data/tab.data";
-import { EditDataService } from "../../fnf-edit/fnf-edit-data/edit-data.service";
-import { Router } from "@angular/router";
-import { Theme } from "../../fnf-custom-css/data/css-theme-type";
-import { MkdirDialogService } from "../../fnf-file/dialog/mkdir/mkdir-dialog.service";
-import { MkdirDialogData } from "../../fnf-file/dialog/mkdir/mkdir-dialog.data";
-import { FileItemIf, FilePara, FindData, FindDialogData, SEARCH_SYMBOL } from "@fnf/fnf-data";
-import { FileActionService } from "../fnf-page-data/service/file-action.service";
-import { CopyOrMoveDialogData } from "../../fnf-file/dialog/copyormovedir/copy-or-move-dialog.data";
-import { CopyOrMoveDialogService } from "../../fnf-file/dialog/copyormovedir/copy-or-move-dialog.service";
-import { FindDialogService } from "../../fnf-file/dialog/find/find-dialog.service";
-import { FindSocketService } from "../fnf-find/find.socketio.service";
+import {Injectable} from "@angular/core";
+import {FilePageDataService} from "../fnf-page-data/file-page-data.service";
+import {LookAndFeelService} from "../fnf-look-and-feel/look-and-feel.service";
+import {ActionId} from "../fnf-action/fnf-action.enum";
+import {TableSelectionService} from "../fnf-table-selection/table-selection.service";
+import {PanelIndex} from "../fnf-page-data/data/panel-index";
+import {PanelSelectionService} from "../fnf-page-data/service/panel-selection.service";
+import {TabData} from "../fnf-page-data/data/tab.data";
+import {EditDataService} from "../../fnf-edit/fnf-edit-data/edit-data.service";
+import {Router} from "@angular/router";
+import {Theme} from "../../fnf-custom-css/data/css-theme-type";
+import {MkdirDialogService} from "../../fnf-file/dialog/mkdir/mkdir-dialog.service";
+import {MkdirDialogData} from "../../fnf-file/dialog/mkdir/mkdir-dialog.data";
+import {FileItemIf, FilePara, FindData, FindDialogData, SEARCH_SYMBOL} from "@fnf/fnf-data";
+import {FileActionService} from "../fnf-page-data/service/file-action.service";
+import {CopyOrMoveDialogData} from "../../fnf-file/dialog/copyormovedir/copy-or-move-dialog.data";
+import {CopyOrMoveDialogService} from "../../fnf-file/dialog/copyormovedir/copy-or-move-dialog.service";
+import {FindDialogService} from "../../fnf-file/dialog/find/find-dialog.service";
+import {FindSocketService} from "../fnf-find/find.socketio.service";
 
 
 @Injectable({
@@ -30,12 +30,11 @@ export class CommandService {
   constructor(
     private readonly filePageDataService: FilePageDataService,
     private readonly lookAndFeelService: LookAndFeelService,
-    private readonly tableSelectionService: TableSelectionService,
     private readonly panelSelectionService: PanelSelectionService,
     private readonly editDataService: EditDataService,
     private readonly mkdirDialogService: MkdirDialogService,
     private readonly fileActionService: FileActionService,
-    private readonly selectionService: TableSelectionService,
+    private readonly tableSelectionService: TableSelectionService,
     private readonly copyOrMoveDialogService: CopyOrMoveDialogService,
     private readonly findDialogService: FindDialogService,
     private readonly findSocketService: FindSocketService,
@@ -81,50 +80,62 @@ export class CommandService {
   copyFullNames() {
     const value = this.filePageDataService.getValue();
     // this.tableSelectionService.
+    console.info('TODO copyFullNames');
   }
 
   copyNames() {
     // TODO
+    console.info('TODO copyNames');
   }
 
   copyFullNamesAsJson() {
     // TODO
+    console.info('TODO copyFullNamesAsJson');
   }
 
   copyNamesAsJson() {
     // TODO
+    console.info('TODO copyNamesAsJson');
   }
 
   toggleCurrentRow() {
     // TODO
+    console.info('TODO toggleCurrentRow');
   }
 
   sumSize() {
     // TODO
+    console.info('TODO sumSize');
   }
 
   onEnterPressed() {
     // TODO
+    console.info('TODO onEnterPressed');
   }
 
   onHomePressed() {
     // TODO
+    console.info('TODO onHomePressed');
   }
 
   onEndPressed() {
     // TODO
+    console.info('TODO onEndPressed');
   }
 
   onPageUpPressed() {
     // TODO
+    console.info('TODO onPageUpPressed');
   }
 
   addNewTabOnActivePanel() {
     // TODO
+    console.info('TODO addNewTabOnActivePanel');
   }
 
   onPageDownPressed() {
     // TODO
+    console.info('TODO onPageDownPressed');
   }
 
   reloadDir() {
@@ -143,6 +154,7 @@ export class CommandService {
 
   saveconfig() {
     // TODO  löschen?
+    console.info('TODO saveconfig');
   }
 
   selectAll() {
@@ -159,18 +171,22 @@ export class CommandService {
 
   removeTabOnActivePanel() {
     // TODO
+    console.info('TODO xxx');
   }
 
   navigateBack() {
     // TODO
+    console.info('TODO navigateBack');
   }
 
   navigateDown() {
     // TODO
+    console.info('TODO navigateDown');
   }
 
   openDialog(actionId: ActionId) {
     // TODO
+    console.info('TODO openDialog');
   }
 
   debug() {
@@ -202,7 +218,7 @@ export class CommandService {
   }
 
   copy() {
-    const selectedData = this.selectionService.getSelectedOrFocussedData();
+    const selectedData = this.tableSelectionService.getSelectedOrFocussedData();
     let sources: string[] = this.getSourcePaths(selectedData);
     this.copyOrMoveDialogService
       .open(
@@ -215,7 +231,7 @@ export class CommandService {
   }
 
   move() {
-    const selectedData = this.selectionService.getSelectedOrFocussedData();
+    const selectedData = this.tableSelectionService.getSelectedOrFocussedData();
     let sources: string[] = this.getSourcePaths(selectedData);
 
     const target = this.getOtherPanelSelectedTabData().path;
@@ -233,7 +249,7 @@ export class CommandService {
   }
 
   delete() {
-    const selectedData = this.selectionService.getSelectedOrFocussedData();
+    const selectedData = this.tableSelectionService.getSelectedOrFocussedData();
     let sources: string[] = this.getSourcePaths(selectedData);
     this.copyOrMoveDialogService
       .open(
@@ -249,7 +265,7 @@ export class CommandService {
   }
 
   onFindClicked() {
-    const selectedData = this.selectionService.getSelectedOrFocussedData();
+    const selectedData = this.tableSelectionService.getSelectedOrFocussedData();
     let sources: string[] = this.getSourcePaths(selectedData);
 
     const data = new FindDialogData("", "**/*.");

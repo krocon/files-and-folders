@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { TypedDataService } from "../../common/typed-data.service";
-import { EditFileData } from "./edit-file.data";
-import { EditData } from "./edit.data";
-import { MemoryCacheService } from "../../common/fnf-memory-cache/memory-cache.service";
+import {Injectable} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
+import {TypedDataService} from "../../common/typed-data.service";
+import {EditFileData} from "./edit-file.data";
+import {EditData} from "./edit.data";
+import {MemoryCacheService} from "../../common/fnf-memory-cache/memory-cache.service";
 
 @Injectable({
   providedIn: "root"
@@ -77,7 +77,7 @@ export class EditDataService {
       const subscription = this.httpClient
         .get(
           EditDataService.config.getFile + editFileData.file,
-          { responseType: "text" }
+          {responseType: "text"}
         )
         .subscribe(txt => {
           this.fileContentCache.addEntry(editFileData.file, txt);
@@ -104,7 +104,7 @@ export class EditDataService {
       .post(
         EditDataService.config.saveFile + editFileData.file,
         text,
-        { responseType: "text" }
+        {responseType: "text"}
       )
       .subscribe(txt => {
         editFileData.loading = false;

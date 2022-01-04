@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
-import { TypedDataService } from "../../../common/typed-data.service";
-import { PanelIndex } from "../data/panel-index";
+import {Injectable} from "@angular/core";
+import {BehaviorSubject} from "rxjs";
+import {TypedDataService} from "../../../common/typed-data.service";
+import {PanelIndex} from "../data/panel-index";
 
 
 @Injectable({

@@ -1,4 +1,4 @@
-import { FileItemIf } from "@fnf/fnf-data";
+import {FileItemIf} from "@fnf/fnf-data";
 
 export class TabMetaData {
 

@@ -1,11 +1,11 @@
-import { Component, Input } from "@angular/core";
-import { CommandService } from "../../../service/fnf-command/command.service";
-import { TableSelectionService } from "../../../service/fnf-table-selection/table-selection.service";
-import { PanelIndex } from "../../../service/fnf-page-data/data/panel-index";
-import { cssThemes, Theme } from "../../../fnf-custom-css/data/css-theme-type";
-import { FileItemIf, getButtonEnableStates } from "@fnf/fnf-data";
-import { ButtonEnableStates } from "./button-enable-states";
-import { environment } from "../../../../environments/environment";
+import {Component, Input} from "@angular/core";
+import {CommandService} from "../../../service/fnf-command/command.service";
+import {TableSelectionService} from "../../../service/fnf-table-selection/table-selection.service";
+import {PanelIndex} from "../../../service/fnf-page-data/data/panel-index";
+import {cssThemes, Theme} from "../../../fnf-custom-css/data/css-theme-type";
+import {FileItemIf, getButtonEnableStates} from "@fnf/fnf-data";
+import {ButtonEnableStates} from "./button-enable-states";
+import {environment} from "../../../../environments/environment";
 
 
 @Component({

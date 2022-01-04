@@ -1,4 +1,4 @@
-import { CssColors } from "@fnf/fnf-data";
+import {CssColors} from "@fnf/fnf-data";
 
 export interface LookAndFeelData {
   name: string;

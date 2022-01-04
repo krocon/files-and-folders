@@ -1,7 +1,8 @@
-import { Injectable } from "@angular/core";
-import hotkeys, { HotkeysEvent } from "hotkeys-js";
-import { Observable, Subject } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import hotkeys, {HotkeysEvent} from "hotkeys-js";
+import {Observable, Subject} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {ActionId} from "../fnf-action/fnf-action.enum";
 
 export type ShortcutActionMapping = { [key: string]: string };
 
@@ -13,7 +14,7 @@ export class ShortcutService {
   private static readonly config = {
     getShortcutActionMappingUrl: "assets/config/shortcut/windows.json"
   };
-  readonly onActionId$ = new Subject<string>();
+  readonly onActionId$ = new Subject<ActionId>();
 
   constructor(
     private readonly httpClient: HttpClient
@@ -33,7 +34,7 @@ export class ShortcutService {
       .subscribe(sc => {
         subscription.unsubscribe();
         for (const key in sc) {
-          const actionId = sc[key];
+          const actionId = sc[key] as ActionId;
           hotkeys(key, (event: KeyboardEvent, handler: HotkeysEvent) => {
             event.preventDefault();
             this.onActionId$.next(actionId);

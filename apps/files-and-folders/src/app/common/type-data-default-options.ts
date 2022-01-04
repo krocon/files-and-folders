@@ -1,4 +1,4 @@
-import { TypedDataOptions } from "./typed-data-options";
+import {TypedDataOptions} from "./typed-data-options";
 
 export class TypeDataDefaultOptions<T> implements TypedDataOptions<T> {
 

@@ -1,8 +1,8 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { LookAndFeelService } from "../service/fnf-look-and-feel/look-and-feel.service";
-import { debounceTime, distinctUntilChanged, takeWhile } from "rxjs/operators";
-import { CssColorEditService } from "./service/css-color-edit.service";
-import { CustomCssItem } from "./data/custom-css-item.data";
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from "@angular/core";
+import {LookAndFeelService} from "../service/fnf-look-and-feel/look-and-feel.service";
+import {debounceTime, distinctUntilChanged, takeWhile} from "rxjs/operators";
+import {CssColorEditService} from "./service/css-color-edit.service";
+import {CustomCssItem} from "./data/custom-css-item.data";
 import {
   CellFocusedEvent,
   ColumnApi,
@@ -14,15 +14,15 @@ import {
   RowDoubleClickedEvent,
   SelectionChangedEvent
 } from "ag-grid-community";
-import { customCssTableColumnDefs } from "./columndefs/custom-css-table-column-defs";
-import { CssColors } from "@fnf/fnf-data";
-import { RowNode } from "ag-grid-community/dist/lib/entities/rowNode";
-import { Subject } from "rxjs";
-import { TableFilterData } from "./table-filter.data";
-import { Theme } from "./data/css-theme-type";
-import { customCcsKeys, CustomCcsKeyType } from "./data/custom-ccs-key.type";
-import { CssArea } from "./data/css-area.type";
-import { CssType } from "./data/css-type.type";
+import {customCssTableColumnDefs} from "./columndefs/custom-css-table-column-defs";
+import {CssColors} from "@fnf/fnf-data";
+import {RowNode} from "ag-grid-community/dist/lib/entities/rowNode";
+import {Subject} from "rxjs";
+import {TableFilterData} from "./table-filter.data";
+import {Theme} from "./data/css-theme-type";
+import {customCcsKeys, CustomCcsKeyType} from "./data/custom-ccs-key.type";
+import {CssArea} from "./data/css-area.type";
+import {CssType} from "./data/css-type.type";
 
 @Component({
   selector: "fnf-custom-css",
