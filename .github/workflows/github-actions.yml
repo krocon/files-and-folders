@@ -1,5 +1,11 @@
 name: docker-build-fnf
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   install_build:
     runs-on: ubuntu-latest
