@@ -81,50 +81,62 @@ export class CommandService {
   copyFullNames() {
     const value = this.filePageDataService.getValue();
     // this.tableSelectionService.
+    console.info('TODO copyFullNames');
   }
 
   copyNames() {
     // TODO
+    console.info('TODO copyNames');
   }
 
   copyFullNamesAsJson() {
     // TODO
+    console.info('TODO copyFullNamesAsJson');
   }
 
   copyNamesAsJson() {
     // TODO
+    console.info('TODO copyNamesAsJson');
   }
 
   toggleCurrentRow() {
     // TODO
+    console.info('TODO toggleCurrentRow');
   }
 
   sumSize() {
     // TODO
+    console.info('TODO sumSize');
   }
 
   onEnterPressed() {
     // TODO
+    console.info('TODO onEnterPressed');
   }
 
   onHomePressed() {
     // TODO
+    console.info('TODO onHomePressed');
   }
 
   onEndPressed() {
     // TODO
+    console.info('TODO onEndPressed');
   }
 
   onPageUpPressed() {
     // TODO
+    console.info('TODO onPageUpPressed');
   }
 
   addNewTabOnActivePanel() {
     // TODO
+    console.info('TODO addNewTabOnActivePanel');
   }
 
   onPageDownPressed() {
     // TODO
+    console.info('TODO onPageDownPressed');
   }
 
   reloadDir() {
@@ -143,6 +155,7 @@ export class CommandService {
 
   saveconfig() {
     // TODO  löschen?
+    console.info('TODO saveconfig');
   }
 
   selectAll() {
@@ -159,18 +172,22 @@ export class CommandService {
 
   removeTabOnActivePanel() {
     // TODO
+    console.info('TODO xxx');
   }
 
   navigateBack() {
     // TODO
+    console.info('TODO navigateBack');
   }
 
   navigateDown() {
     // TODO
+    console.info('TODO navigateDown');
   }
 
   openDialog(actionId: ActionId) {
     // TODO
+    console.info('TODO openDialog');
   }
 
   debug() {

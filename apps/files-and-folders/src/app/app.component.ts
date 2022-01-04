@@ -9,7 +9,7 @@ import {FilePageDataService} from "./service/fnf-page-data/file-page-data.servic
 import {ConfigService} from "./service/fnf-config/config.service";
 import {Config} from "@fnf/fnf-data";
 import {DockerRootDeletePipe} from "./fnf-file/pipe/docker-root-delete.pipe";
-import {CommandMappingService} from "./service/fnf-command/command-mapping.service";
+import {ActionService} from "./service/fnf-action/action.service";
 
 @Component({
   selector: "fnf-root",
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     private readonly sysinfoService: SysinfoService,
     private readonly filePageDataService: FilePageDataService,
     private readonly configService: ConfigService,
-    private readonly commandMappingService: CommandMappingService,
+    private readonly actionService: ActionService,
   ) {
     // Set config to services:
     ConfigService.forRoot(environment.config);
@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
 
     this.shortcutService.onActionId$
       .subscribe(
-        this.commandMappingService.callActionById
+        this.actionService.callActionByIdString
       );
 
     this.initTabs();

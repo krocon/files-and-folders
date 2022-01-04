@@ -6,7 +6,7 @@ import {EditDataModule} from "../../fnf-edit/fnf-edit-data/edit-data.module";
 import {CopyOrMoveDialogModule} from "../../fnf-file/dialog/copyormovedir/copy-or-move-dialog.module";
 import {CommandService} from "./command.service";
 import {FindDialogModule} from "../../fnf-file/dialog/find/find-dialog.module";
-import {CommandMappingService} from "./command-mapping.service";
+
 
 @NgModule({
   imports: [
@@ -19,7 +19,6 @@ import {CommandMappingService} from "./command-mapping.service";
   ],
   providers: [
     CommandService,
-    CommandMappingService
   ]
 })
 export class CommandModule {

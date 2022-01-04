@@ -99,8 +99,7 @@ export class FilesComponent implements OnInit, OnDestroy {
         takeWhile(() => this.alive)
       )
       .subscribe(
-        actionKey => {
-          const actionId = this.actionService.getActionIdByString(actionKey);
+        actionId => {
           this.actionService.doAction(actionId);
         });
 
