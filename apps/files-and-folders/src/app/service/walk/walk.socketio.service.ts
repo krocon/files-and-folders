@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Socket } from "ngx-socket-io";
-import { Subscription } from "rxjs";
-import { WalkData, WalkParaData } from "@fnf/fnf-data";
+import {Injectable} from "@angular/core";
+import {Socket} from "ngx-socket-io";
+import {Subscription} from "rxjs";
+import {WalkData, WalkParaData} from "@fnf/fnf-data";
 
 export type WalkCallback = (walkData: WalkData) => void;
 

@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { ActionId } from "./fnf-action.enum";
-import { FnfActionLabels } from "./fnf-action-labels";
-import { CommandService } from "../fnf-command/command.service";
+import {Injectable} from "@angular/core";
+import {ActionId} from "./fnf-action.enum";
+import {FnfActionLabels} from "./fnf-action-labels";
+import {CommandService} from "../fnf-command/command.service";
 
 
 @Injectable({

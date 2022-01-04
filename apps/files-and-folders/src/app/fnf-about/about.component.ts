@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
-import { SysinfoService } from "../service/fnf-sysinfo/sysinfo.service";
-import { takeWhile } from "rxjs/operators";
-import { Sysinfo, SysinfoIf } from "@fnf/fnf-data";
+import {Component, OnInit} from "@angular/core";
+import {SysinfoService} from "../service/fnf-sysinfo/sysinfo.service";
+import {takeWhile} from "rxjs/operators";
+import {Sysinfo, SysinfoIf} from "@fnf/fnf-data";
 
 @Component({
   selector: "fnf-about",

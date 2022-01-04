@@ -1,10 +1,10 @@
-import { ColDef, ColGroupDef } from "ag-grid-community";
-import { nameComparator } from "./name-comparator";
-import { sizeCellRenderer } from "./size-cellrenderer";
-import { sizeComparator } from "./size-comparator";
-import { dateCellRenderer } from "./date-cellrenderer";
-import { dateComparator } from "./date-comparator";
-import { nameCellRenderer } from "./name-cellrenderer";
+import {ColDef, ColGroupDef} from "ag-grid-community";
+import {nameComparator} from "./name-comparator";
+import {sizeCellRenderer} from "./size-cellrenderer";
+import {sizeComparator} from "./size-comparator";
+import {dateCellRenderer} from "./date-cellrenderer";
+import {dateComparator} from "./date-comparator";
+import {nameCellRenderer} from "./name-cellrenderer";
 
 
 export const dirTableColumnDefs = [

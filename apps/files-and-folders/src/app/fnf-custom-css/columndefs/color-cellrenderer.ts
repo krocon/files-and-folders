@@ -1,4 +1,4 @@
-import { ValueFormatterParams } from "ag-grid-community/dist/lib/entities/colDef";
+import {ValueFormatterParams} from "ag-grid-community/dist/lib/entities/colDef";
 
 export function colorCellRenderer(params: ValueFormatterParams) {
   if (!params || !params.data || !params.value) return "";

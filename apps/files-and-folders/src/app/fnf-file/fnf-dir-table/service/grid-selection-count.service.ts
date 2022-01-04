@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { GridApi } from "ag-grid-community";
-import { SelectionLabelData } from "../../../service/fnf-page-data/data/selection-label.data";
+import {Injectable} from "@angular/core";
+import {GridApi} from "ag-grid-community";
+import {SelectionLabelData} from "../../../service/fnf-page-data/data/selection-label.data";
 
 @Injectable({
   providedIn: "root"

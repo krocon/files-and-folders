@@ -1,4 +1,4 @@
-import { PanelIndex } from "../../../../service/fnf-page-data/data/panel-index";
+import {PanelIndex} from "../../../../service/fnf-page-data/data/panel-index";
 
 export class FavsAndLatestEvent {
 

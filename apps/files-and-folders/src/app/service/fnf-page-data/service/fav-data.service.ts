@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
-import { TypedDataService } from "../../../common/typed-data.service";
+import {Injectable} from "@angular/core";
+import {BehaviorSubject} from "rxjs";
+import {TypedDataService} from "../../../common/typed-data.service";
 
 
 @Injectable({

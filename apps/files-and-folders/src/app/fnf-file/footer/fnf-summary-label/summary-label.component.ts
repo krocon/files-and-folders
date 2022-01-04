@@ -1,6 +1,6 @@
-import { Component, Input } from "@angular/core";
-import { PanelIndex } from "../../../service/fnf-page-data/data/panel-index";
-import { SelectionLabelData } from "../../../service/fnf-page-data/data/selection-label.data";
+import {Component, Input} from "@angular/core";
+import {PanelIndex} from "../../../service/fnf-page-data/data/panel-index";
+import {SelectionLabelData} from "../../../service/fnf-page-data/data/selection-label.data";
 
 
 @Component({

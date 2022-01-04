@@ -1,4 +1,4 @@
-import { ValueFormatterParams } from "ag-grid-community/dist/lib/entities/colDef";
+import {ValueFormatterParams} from "ag-grid-community/dist/lib/entities/colDef";
 
 export function sizeCellRenderer(params: ValueFormatterParams) {
   if (!params) return "";
@@ -8,5 +8,5 @@ export function sizeCellRenderer(params: ValueFormatterParams) {
     if (params.data.isDir) return "&lt;DIR&gt;";
     return "?";
   }
-  return params.value.toLocaleString("en-US", { minimumFractionDigits: 0 }); // todo anders formatieren?
+  return params.value.toLocaleString("en-US", {minimumFractionDigits: 0}); // todo anders formatieren?
 }

@@ -1,5 +1,5 @@
-import { MatDialogConfig } from "@angular/material/dialog";
-import { CopyOrMoveDialogData } from "./copy-or-move-dialog.data";
+import {MatDialogConfig} from "@angular/material/dialog";
+import {CopyOrMoveDialogData} from "./copy-or-move-dialog.data";
 
 export class CopyOrMoveDialogConfig extends MatDialogConfig {
 

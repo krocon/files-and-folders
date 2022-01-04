@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { CopyOrMoveDialogData } from "./copy-or-move-dialog.data";
-import { CopyOrMoveDialogComponent } from "./copy-or-move-dialog.component";
-import { takeWhile } from "rxjs/operators";
-import { MatDialog } from "@angular/material/dialog";
-import { CopyOrMoveDialogConfig } from "./copy-or-move-dialog.config";
-import { FileItem, FileItemIf } from "@fnf/fnf-data";
+import {Injectable} from "@angular/core";
+import {CopyOrMoveDialogData} from "./copy-or-move-dialog.data";
+import {CopyOrMoveDialogComponent} from "./copy-or-move-dialog.component";
+import {takeWhile} from "rxjs/operators";
+import {MatDialog} from "@angular/material/dialog";
+import {CopyOrMoveDialogConfig} from "./copy-or-move-dialog.config";
+import {FileItem, FileItemIf} from "@fnf/fnf-data";
 
 @Injectable()
 export class CopyOrMoveDialogService {

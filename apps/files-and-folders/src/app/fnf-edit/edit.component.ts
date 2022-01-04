@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 // Imports are important! You may configure it via `angular.json` as well.
 import "brace";
 import "brace/mode/sql";
 import "brace/theme/eclipse";
-import { ActivatedRoute, Router } from "@angular/router";
-import { EditDataService } from "./fnf-edit-data/edit-data.service";
-import { EditFileData } from "./fnf-edit-data/edit-file.data";
-import { EditData } from "./fnf-edit-data/edit.data";
+import {ActivatedRoute, Router} from "@angular/router";
+import {EditDataService} from "./fnf-edit-data/edit-data.service";
+import {EditFileData} from "./fnf-edit-data/edit-file.data";
+import {EditData} from "./fnf-edit-data/edit.data";
 
 @Component({
   selector: "fnf-edit",
@@ -17,7 +17,7 @@ export class EditComponent implements OnInit {
 
   public text = "...";
   public loadedText = "...";
-  public options = { maxLines: 1000, printMargin: false };
+  public options = {maxLines: 1000, printMargin: false};
   public index = -1;
   private editFileData?: EditFileData;
   private editData: EditData = new EditData(0, []);

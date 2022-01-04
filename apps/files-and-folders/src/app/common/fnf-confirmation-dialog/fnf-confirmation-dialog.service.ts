@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
-import { Observable } from "rxjs";
-import { FnfConfirmationDialogComponent } from "./fnf-confirmation-dialog.component";
-import { takeWhile } from "rxjs/operators";
-import { ConfirmationData } from "./data/confirmation.data";
-import { ButtonData } from "./data/button.data";
+import {Injectable} from "@angular/core";
+import {MatDialog} from "@angular/material/dialog";
+import {Observable} from "rxjs";
+import {FnfConfirmationDialogComponent} from "./fnf-confirmation-dialog.component";
+import {takeWhile} from "rxjs/operators";
+import {ConfirmationData} from "./data/confirmation.data";
+import {ButtonData} from "./data/button.data";
 
 @Injectable()
 export class FnfConfirmationDialogService {

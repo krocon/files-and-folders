@@ -1,6 +1,6 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { SysinfoService } from "./sysinfo.service";
+import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {SysinfoService} from "./sysinfo.service";
 
 
 @NgModule({

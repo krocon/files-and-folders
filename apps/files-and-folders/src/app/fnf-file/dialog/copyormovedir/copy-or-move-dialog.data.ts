@@ -1,4 +1,4 @@
-import { FileOperation } from "./file-operation";
+import {FileOperation} from "./file-operation";
 
 
 export class CopyOrMoveDialogData {

@@ -1,7 +1,7 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import {Pipe, PipeTransform} from "@angular/core";
 
 
-@Pipe({ name: "fnfFileSize" })
+@Pipe({name: "fnfFileSize"})
 export class FnfFileSizePipe implements PipeTransform {
 
   transform(bytes: number): string {

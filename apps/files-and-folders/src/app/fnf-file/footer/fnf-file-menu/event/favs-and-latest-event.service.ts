@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { FavsAndLatestEvent } from "./favs-and-latest-event";
-import { TypedEventService } from "./typed-event.service";
+import {Injectable} from "@angular/core";
+import {FavsAndLatestEvent} from "./favs-and-latest-event";
+import {TypedEventService} from "./typed-event.service";
 
 
 @Injectable({

@@ -1,6 +1,6 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { FnfAutofocusDirective } from "./fnf-autofocus.directive";
+import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {FnfAutofocusDirective} from "./fnf-autofocus.directive";
 
 @NgModule({
   declarations: [FnfAutofocusDirective],

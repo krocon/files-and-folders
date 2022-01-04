@@ -1,4 +1,4 @@
-import { AbstractControl, AbstractControlOptions, AsyncValidatorFn, FormGroup, ValidatorFn } from "@angular/forms";
+import {AbstractControl, AbstractControlOptions, AsyncValidatorFn, FormGroup, ValidatorFn} from "@angular/forms";
 
 export class FormGroupTyped<T> extends FormGroup {
 

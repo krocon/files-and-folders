@@ -1,5 +1,5 @@
-import { ButtonData } from "./button.data";
-import { InputData } from "./input.data";
+import {ButtonData} from "./button.data";
+import {InputData} from "./input.data";
 
 export class ConfirmationData {
   public inputModel: { [key: string]: any } = {};

@@ -1,4 +1,4 @@
-<h2 mat-dialog-title data-test-id="dlg-find-title">Find</h2>
+<h2 data-test-id="dlg-find-title" mat-dialog-title>Find</h2>
 
 
 <mat-dialog-content class="h-full">
@@ -7,12 +7,12 @@
     <mat-form-field>
       <input
         (keydown.enter)="onOkClicked()"
+        [readonly]="!!data.folders"
         class="pb-4"
         data-test-id="folder-input"
         formControlName="folder"
         matInput
         placeholder="Search in"
-        [readonly]="!!data.folders"
       />
       <mat-error>
         Please enter a valid folder
@@ -30,13 +30,13 @@
         matInput
         placeholder="Search for"
       />
-      <mat-icon matSuffix [matMenuTriggerFor]="menu">expand_more</mat-icon>
+      <mat-icon [matMenuTriggerFor]="menu" matSuffix>expand_more</mat-icon>
       <mat-menu #menu="matMenu">
         <button
-          mat-menu-item
-          *ngFor="let p of lastPatterns"
           (click)="setPattern(p)"
-          [innerText]="p"></button>
+          *ngFor="let p of lastPatterns"
+          [innerText]="p"
+          mat-menu-item></button>
       </mat-menu>
       <mat-error>
         Please enter a valid pattern
@@ -47,7 +47,8 @@
       class="pb-8 pt-4"
       data-test-id="newtab-input"
       formControlName="newtab"
-      name="newtab">Results in a new tab</mat-checkbox>
+      name="newtab">Results in a new tab
+    </mat-checkbox>
 
   </form>
 </mat-dialog-content>
@@ -57,8 +58,8 @@
   <button
     (click)="onCancelClicked()"
     class="flex-1"
-    data-test-id="dialog-cancel-button"
     color=""
+    data-test-id="dialog-cancel-button"
     mat-raised-button>
     Cancel
   </button>
@@ -67,9 +68,9 @@
     (click)="onOkClicked()"
     [disabled]="!formGroup.valid"
     class="flex-1"
+    color="primary"
     data-test-id="dialog-ok-button"
-    mat-raised-button
-    color="primary">
+    mat-raised-button>
     OK
   </button>
 </mat-dialog-actions>

@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { GridApi } from "ag-grid-community";
-import { PanelIndex } from "../fnf-page-data/data/panel-index";
-import { FileItemIf } from "@fnf/fnf-data";
+import {Injectable} from "@angular/core";
+import {GridApi} from "ag-grid-community";
+import {PanelIndex} from "../fnf-page-data/data/panel-index";
+import {FileItemIf} from "@fnf/fnf-data";
 
 @Injectable()
 export class TableSelectionService {

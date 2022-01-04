@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { TypedDataService } from "../../common/typed-data.service";
-import { FilePageData } from "./data/file-page.data";
-import { TabData } from "./data/tab.data";
-import { BehaviorSubject } from "rxjs";
-import { PanelIndex } from "./data/panel-index";
+import {Injectable} from "@angular/core";
+import {TypedDataService} from "../../common/typed-data.service";
+import {FilePageData} from "./data/file-page.data";
+import {TabData} from "./data/tab.data";
+import {BehaviorSubject} from "rxjs";
+import {PanelIndex} from "./data/panel-index";
 
 
 @Injectable({

@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Socket } from "ngx-socket-io";
-import { Observable, of } from "rxjs";
+import {Injectable} from "@angular/core";
+import {Socket} from "ngx-socket-io";
+import {Observable, of} from "rxjs";
 import {
   ActionGatewayKeys as keys,
   DirEvent,
@@ -13,8 +13,8 @@ import {
   isZipUrl,
   SEARCH_SYMBOL
 } from "@fnf/fnf-data";
-import { map, mergeAll } from "rxjs/operators";
-import { HttpClient } from "@angular/common/http";
+import {map, mergeAll} from "rxjs/operators";
+import {HttpClient} from "@angular/common/http";
 
 
 @Injectable({
@@ -126,7 +126,7 @@ export class FileSystemService {
       .post(
         FileSystemService.config.checkPathUrl,
         para,
-        { responseType: "text" }
+        {responseType: "text"}
       );
   }
 
@@ -176,7 +176,7 @@ export class FileSystemService {
     const obs = this.socket.fromEvent<DirEventIf>(listenOn);
 
     const eventName = "dir";
-    this.socket.emit(eventName, { path, rid, nocache: true });
+    this.socket.emit(eventName, {path, rid, nocache: true});
     return obs; //.pipe(tap(console.info));
   }
 

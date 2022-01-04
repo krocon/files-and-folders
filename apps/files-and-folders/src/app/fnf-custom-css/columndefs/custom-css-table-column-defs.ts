@@ -1,5 +1,5 @@
-import { ColDef, ColGroupDef } from "ag-grid-community";
-import { colorCellRenderer } from "./color-cellrenderer";
+import {ColDef, ColGroupDef} from "ag-grid-community";
+import {colorCellRenderer} from "./color-cellrenderer";
 
 
 export const customCssTableColumnDefs = [

@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { MkdirDialogData } from "./mkdir-dialog.data";
-import { MkdirDialogComponent } from "./mkdir-dialog.component";
-import { takeWhile } from "rxjs/operators";
-import { MatDialog } from "@angular/material/dialog";
-import { MkdirDialogConfig } from "./mkdir-dialog.config";
-import { FileItemIf } from "@fnf/fnf-data";
+import {Injectable} from "@angular/core";
+import {MkdirDialogData} from "./mkdir-dialog.data";
+import {MkdirDialogComponent} from "./mkdir-dialog.component";
+import {takeWhile} from "rxjs/operators";
+import {MatDialog} from "@angular/material/dialog";
+import {MkdirDialogConfig} from "./mkdir-dialog.config";
+import {FileItemIf} from "@fnf/fnf-data";
 
 @Injectable()
 export class MkdirDialogService {

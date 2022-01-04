@@ -1,8 +1,8 @@
-import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { MkdirDialogData } from "./mkdir-dialog.data";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { FileItem } from "@fnf/fnf-data";
+import {Component, Inject, OnDestroy, OnInit} from "@angular/core";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {MkdirDialogData} from "./mkdir-dialog.data";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {FileItem} from "@fnf/fnf-data";
 
 @Component({
   selector: "fnf-mkdir-dialog",

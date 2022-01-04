@@ -29,8 +29,7 @@
 </span>
 
 
-
-<button (click)="onToggleFavClicked()" mat-icon-button *ngIf="favIconVisible">
+<button (click)="onToggleFavClicked()" *ngIf="favIconVisible" mat-icon-button>
   <mat-icon
     *ngIf="isFav"
     [ngClass]="{'fnf-active-fg-color':selected}">star

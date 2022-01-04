@@ -1,5 +1,5 @@
-import { RowNode } from "ag-grid-community/dist/lib/entities/rowNode";
-import { DOT_DOT } from "./dot-dot";
+import {RowNode} from "ag-grid-community/dist/lib/entities/rowNode";
+import {DOT_DOT} from "./dot-dot";
 
 export function nameComparator(value1: any, value2: any, row1: RowNode, row2: RowNode, isInverted: boolean) {
   const f = isInverted ? -1 : 1;

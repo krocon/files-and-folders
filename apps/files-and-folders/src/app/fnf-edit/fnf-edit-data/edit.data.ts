@@ -1,4 +1,4 @@
-import { EditFileData } from "./edit-file.data";
+import {EditFileData} from "./edit-file.data";
 
 export class EditData {
 

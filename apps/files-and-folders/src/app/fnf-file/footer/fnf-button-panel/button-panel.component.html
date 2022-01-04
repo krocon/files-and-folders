@@ -70,7 +70,7 @@
 
       <mat-divider></mat-divider>
 
-      <button (click)="onRenameClicked()" mat-menu-item [disabled]="!buttonEnableStates.rename">
+      <button (click)="onRenameClicked()" [disabled]="!buttonEnableStates.rename" mat-menu-item>
         Rename...
         <fnf-shortcut [keys]="['⇧', 'F6']"></fnf-shortcut>
       </button>
@@ -234,7 +234,7 @@
     </mat-menu>
 
 
-    <button *ngIf="debugging" (click)="onDebugClicked($event)" class="flexbox-item" mat-stroked-button>
+    <button (click)="onDebugClicked($event)" *ngIf="debugging" class="flexbox-item" mat-stroked-button>
       <mat-icon>bug_report</mat-icon>
     </button>
 

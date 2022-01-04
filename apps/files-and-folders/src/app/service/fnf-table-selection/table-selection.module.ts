@@ -1,6 +1,6 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { TableSelectionService } from "./table-selection.service";
+import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {TableSelectionService} from "./table-selection.service";
 
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { TabData } from "./tab.data";
+import {TabData} from "./tab.data";
 
 export class TabsPanelData {
 

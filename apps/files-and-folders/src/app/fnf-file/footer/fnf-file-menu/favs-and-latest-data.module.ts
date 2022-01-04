@@ -10,15 +10,15 @@ import {DockerRootDeleteModule} from "../../pipe/docker-root-delete.module";
 
 
 @NgModule({
-    imports: [
-        CommonModule,
-        MatMenuModule,
-        MatIconModule,
-        MatButtonModule,
-        MatDividerModule,
-        FavsAndLatestEventModule,
-        DockerRootDeleteModule
-    ],
+  imports: [
+    CommonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDividerModule,
+    FavsAndLatestEventModule,
+    DockerRootDeleteModule
+  ],
   declarations: [
     FavsAndLatestComponent
   ],

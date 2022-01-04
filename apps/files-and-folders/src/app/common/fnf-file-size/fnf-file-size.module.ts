@@ -1,6 +1,6 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { FnfFileSizePipe } from "./fnf-file-size.pipe";
+import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {FnfFileSizePipe} from "./fnf-file-size.pipe";
 
 @NgModule({
   imports: [

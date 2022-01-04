@@ -4,35 +4,34 @@
 
 
 <mat-dialog-content>
-<form
-  [formGroup]="formGroup"
-  autocomplete="off"
-  ngNoForm>
+  <form
+    [formGroup]="formGroup"
+    autocomplete="off"
+    ngNoForm>
 
-  <h2 [innerText]="data?.targetDir" class="pt-4 pb-4"></h2>
+    <h2 [innerText]="data?.targetDir" class="pt-4 pb-4"></h2>
 
-  <mat-form-field class="w-full">
-    <input
-      (keydown.enter)="onOkClicked()"
-      class="pb-4"
-      data-test-id="login-user-input"
-      fnfAutofocus="true"
-      formControlName="name"
-      matInput
-      placeholder="Name"
-    />
-    <mat-error>
-      Please enter a valid folder name
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field class="w-full">
+      <input
+        (keydown.enter)="onOkClicked()"
+        class="pb-4"
+        data-test-id="login-user-input"
+        fnfAutofocus="true"
+        formControlName="name"
+        matInput
+        placeholder="Name"
+      />
+      <mat-error>
+        Please enter a valid folder name
+      </mat-error>
+    </mat-form-field>
 
-  <div class="">
-    <mat-error *ngIf="hasError" [innerText]="errorMesasage"></mat-error>
-  </div>
+    <div class="">
+      <mat-error *ngIf="hasError" [innerText]="errorMesasage"></mat-error>
+    </div>
 
-</form>
+  </form>
 </mat-dialog-content>
-
 
 
 <mat-dialog-actions>

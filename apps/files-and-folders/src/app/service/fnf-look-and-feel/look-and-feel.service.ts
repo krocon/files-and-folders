@@ -1,12 +1,12 @@
-import { Inject, Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
-import { HttpClient } from "@angular/common/http";
-import { LookAndFeelData } from "./look-and-feel.data";
-import { DOCUMENT } from "@angular/common";
-import { TypedDataService } from "../../common/typed-data.service";
-import { cssThemes, Theme } from "../../fnf-custom-css/data/css-theme-type";
-import { Socket } from "ngx-socket-io";
-import { CssColors } from "@fnf/fnf-data";
+import {Inject, Injectable} from "@angular/core";
+import {Observable, of} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {LookAndFeelData} from "./look-and-feel.data";
+import {DOCUMENT} from "@angular/common";
+import {TypedDataService} from "../../common/typed-data.service";
+import {cssThemes, Theme} from "../../fnf-custom-css/data/css-theme-type";
+import {Socket} from "ngx-socket-io";
+import {CssColors} from "@fnf/fnf-data";
 
 
 @Injectable({

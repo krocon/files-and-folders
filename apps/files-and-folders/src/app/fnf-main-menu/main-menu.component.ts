@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { takeWhile } from "rxjs/operators";
-import { EditData } from "../fnf-edit/fnf-edit-data/edit.data";
-import { ShortcutService } from "../service/fnf-shortcut/shortcut.service";
-import { EditDataService } from "../fnf-edit/fnf-edit-data/edit-data.service";
+import {Component, OnDestroy, OnInit} from "@angular/core";
+import {takeWhile} from "rxjs/operators";
+import {EditData} from "../fnf-edit/fnf-edit-data/edit.data";
+import {ShortcutService} from "../service/fnf-shortcut/shortcut.service";
+import {EditDataService} from "../fnf-edit/fnf-edit-data/edit-data.service";
 
 
 @Component({

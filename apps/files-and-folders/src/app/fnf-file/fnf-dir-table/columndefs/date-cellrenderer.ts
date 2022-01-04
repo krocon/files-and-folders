@@ -1,4 +1,4 @@
-import { ValueFormatterParams } from "ag-grid-community/dist/lib/entities/colDef";
+import {ValueFormatterParams} from "ag-grid-community/dist/lib/entities/colDef";
 
 // const dateTimeFormat = new Intl.DateTimeFormat('de-DE');
 

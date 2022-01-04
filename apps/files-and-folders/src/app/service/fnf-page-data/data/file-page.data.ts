@@ -1,5 +1,5 @@
-import { TabData } from "./tab.data";
-import { TabsPanelData } from "./tabs-panel.data";
+import {TabData} from "./tab.data";
+import {TabsPanelData} from "./tabs-panel.data";
 
 export class FilePageData {
 

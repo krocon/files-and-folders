@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { FileItemIf } from "@fnf/fnf-data";
-import { GridApi } from "ag-grid-community";
+import {Injectable} from "@angular/core";
+import {FileItemIf} from "@fnf/fnf-data";
+import {GridApi} from "ag-grid-community";
 
 @Injectable({
   providedIn: "root"

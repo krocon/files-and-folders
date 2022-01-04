@@ -1,5 +1,5 @@
-import { ValueFormatterParams } from "ag-grid-community/dist/lib/entities/colDef";
-import { DOT_DOT } from "./dot-dot";
+import {ValueFormatterParams} from "ag-grid-community/dist/lib/entities/colDef";
+import {DOT_DOT} from "./dot-dot";
 
 export function nameCellRenderer(params: ValueFormatterParams) {
   if (!params || !params.data || !params.value) {
