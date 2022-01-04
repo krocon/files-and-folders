@@ -30,12 +30,11 @@ export class CommandService {
   constructor(
     private readonly filePageDataService: FilePageDataService,
     private readonly lookAndFeelService: LookAndFeelService,
-    private readonly tableSelectionService: TableSelectionService,
     private readonly panelSelectionService: PanelSelectionService,
     private readonly editDataService: EditDataService,
     private readonly mkdirDialogService: MkdirDialogService,
     private readonly fileActionService: FileActionService,
-    private readonly selectionService: TableSelectionService,
+    private readonly tableSelectionService: TableSelectionService,
     private readonly copyOrMoveDialogService: CopyOrMoveDialogService,
     private readonly findDialogService: FindDialogService,
     private readonly findSocketService: FindSocketService,
@@ -219,7 +218,7 @@ export class CommandService {
   }
 
   copy() {
-    const selectedData = this.selectionService.getSelectedOrFocussedData();
+    const selectedData = this.tableSelectionService.getSelectedOrFocussedData();
     let sources: string[] = this.getSourcePaths(selectedData);
     this.copyOrMoveDialogService
       .open(
@@ -232,7 +231,7 @@ export class CommandService {
   }
 
   move() {
-    const selectedData = this.selectionService.getSelectedOrFocussedData();
+    const selectedData = this.tableSelectionService.getSelectedOrFocussedData();
     let sources: string[] = this.getSourcePaths(selectedData);
 
     const target = this.getOtherPanelSelectedTabData().path;
@@ -250,7 +249,7 @@ export class CommandService {
   }
 
   delete() {
-    const selectedData = this.selectionService.getSelectedOrFocussedData();
+    const selectedData = this.tableSelectionService.getSelectedOrFocussedData();
     let sources: string[] = this.getSourcePaths(selectedData);
     this.copyOrMoveDialogService
       .open(
@@ -266,7 +265,7 @@ export class CommandService {
   }
 
   onFindClicked() {
-    const selectedData = this.selectionService.getSelectedOrFocussedData();
+    const selectedData = this.tableSelectionService.getSelectedOrFocussedData();
     let sources: string[] = this.getSourcePaths(selectedData);
 
     const data = new FindDialogData("", "**/*.");
