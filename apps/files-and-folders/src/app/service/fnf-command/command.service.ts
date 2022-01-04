@@ -1,22 +1,22 @@
-import { Injectable } from "@angular/core";
-import { FilePageDataService } from "../fnf-page-data/file-page-data.service";
-import { LookAndFeelService } from "../fnf-look-and-feel/look-and-feel.service";
-import { ActionId } from "../fnf-action/fnf-action.enum";
-import { TableSelectionService } from "../fnf-table-selection/table-selection.service";
-import { PanelIndex } from "../fnf-page-data/data/panel-index";
-import { PanelSelectionService } from "../fnf-page-data/service/panel-selection.service";
-import { TabData } from "../fnf-page-data/data/tab.data";
-import { EditDataService } from "../../fnf-edit/fnf-edit-data/edit-data.service";
-import { Router } from "@angular/router";
-import { Theme } from "../../fnf-custom-css/data/css-theme-type";
-import { MkdirDialogService } from "../../fnf-file/dialog/mkdir/mkdir-dialog.service";
-import { MkdirDialogData } from "../../fnf-file/dialog/mkdir/mkdir-dialog.data";
-import { FileItemIf, FilePara, FindData, FindDialogData, SEARCH_SYMBOL } from "@fnf/fnf-data";
-import { FileActionService } from "../fnf-page-data/service/file-action.service";
-import { CopyOrMoveDialogData } from "../../fnf-file/dialog/copyormovedir/copy-or-move-dialog.data";
-import { CopyOrMoveDialogService } from "../../fnf-file/dialog/copyormovedir/copy-or-move-dialog.service";
-import { FindDialogService } from "../../fnf-file/dialog/find/find-dialog.service";
-import { FindSocketService } from "../fnf-find/find.socketio.service";
+import {Injectable} from "@angular/core";
+import {FilePageDataService} from "../fnf-page-data/file-page-data.service";
+import {LookAndFeelService} from "../fnf-look-and-feel/look-and-feel.service";
+import {ActionId} from "../fnf-action/fnf-action.enum";
+import {TableSelectionService} from "../fnf-table-selection/table-selection.service";
+import {PanelIndex} from "../fnf-page-data/data/panel-index";
+import {PanelSelectionService} from "../fnf-page-data/service/panel-selection.service";
+import {TabData} from "../fnf-page-data/data/tab.data";
+import {EditDataService} from "../../fnf-edit/fnf-edit-data/edit-data.service";
+import {Router} from "@angular/router";
+import {Theme} from "../../fnf-custom-css/data/css-theme-type";
+import {MkdirDialogService} from "../../fnf-file/dialog/mkdir/mkdir-dialog.service";
+import {MkdirDialogData} from "../../fnf-file/dialog/mkdir/mkdir-dialog.data";
+import {FileItemIf, FilePara, FindData, FindDialogData, SEARCH_SYMBOL} from "@fnf/fnf-data";
+import {FileActionService} from "../fnf-page-data/service/file-action.service";
+import {CopyOrMoveDialogData} from "../../fnf-file/dialog/copyormovedir/copy-or-move-dialog.data";
+import {CopyOrMoveDialogService} from "../../fnf-file/dialog/copyormovedir/copy-or-move-dialog.service";
+import {FindDialogService} from "../../fnf-file/dialog/find/find-dialog.service";
+import {FindSocketService} from "../fnf-find/find.socketio.service";
 
 
 @Injectable({
@@ -41,6 +41,44 @@ export class CommandService {
     private readonly findSocketService: FindSocketService,
     private readonly router: Router
   ) {
+  }
+
+  // TODO callActionById: richtiges Mapping
+  public callActionById(actionId: string): void {
+    if (actionId === "SPACE_PRESSED")  this.togglePanel()
+     else if (actionId === "HOME_PRESSED")  this.togglePanel()
+     else if (actionId === "END_PRESSED") this.togglePanel()
+     else if (actionId === "PAGEUP_PRESSED")  this.togglePanel()
+     else if (actionId === "PAGEDOWN_PRESSED")  this.togglePanel()
+     else if (actionId === "ENTER_PRESSED")  this.togglePanel()
+     else if (actionId === "TOGGLE_SELECTION_CURRENT_ROW")  this.togglePanel()
+     else if (actionId === "OPEN_GOTO_ANYTHING_DLG")  this.togglePanel()
+     else if (actionId === "OPEN_COPY_DLG")  this.togglePanel()
+     else if (actionId === "OPEN_MOVE_DLG")  this.togglePanel()
+     else if (actionId === "OPEN_MKDIR_DLG")  this.togglePanel()
+     else if (actionId === "OPEN_DELETE_DLG")  this.togglePanel()
+     else if (actionId === "OPEN_DELETE_EMPTY_FOLDERS_DLG")  this.togglePanel()
+     else if (actionId === "OPEN_CHDIR_DLG")  this.togglePanel()
+     else if (actionId === "SELECT_LEFT_PANEL")  this.togglePanel()
+     else if (actionId === "SELECT_RIGHT_PANEL")  this.togglePanel()
+     else if (actionId === "TOGGLE_PANEL")  this.togglePanel()
+     else if (actionId === "ADD_NEW_TAB")  this.togglePanel()
+     else if (actionId === "REMOVE_TAB")  this.togglePanel()
+     else if (actionId === "SAVE_CONFIG")  this.togglePanel()
+     else if (actionId === "OPEN_GROUPFILES_DLG")  this.togglePanel()
+     else if (actionId === "OPEN_FIND_DUBLICATES_DLG")  this.togglePanel()
+     else if (actionId === "OPEN_MULTIRENAME_DLG")  this.togglePanel()
+     else if (actionId === "OPEN_RENAME_DLG")  this.togglePanel()
+     else if (actionId === "OPEN_FIND_DLG")  this.togglePanel()
+     else if (actionId === "RELOAD_DIR")  this.togglePanel()
+     else if (actionId === "OPEN_SELECT_DLG")  this.togglePanel()
+     else if (actionId === "SELECT_ALL")  this.togglePanel()
+     else if (actionId === "OPEN_DESELECT_DLG")  this.togglePanel()
+     else if (actionId === "DESELECT_ALL")  this.togglePanel()
+     else if (actionId === "TOGGLE_SELECTION")  this.togglePanel()
+     else if (actionId === "NAVIGATE_LEVEL_DOWN")  this.togglePanel()
+     else if (actionId === "NAVIGATE_BACK")  this.togglePanel()
+     else if (actionId === "DUMMY_ACTION")  this.togglePanel()
   }
 
   public setTheme(theme: Theme): void {

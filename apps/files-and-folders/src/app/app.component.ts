@@ -9,7 +9,7 @@ import {FilePageDataService} from "./service/fnf-page-data/file-page-data.servic
 import {ConfigService} from "./service/fnf-config/config.service";
 import {Config} from "@fnf/fnf-data";
 import {DockerRootDeletePipe} from "./fnf-file/pipe/docker-root-delete.pipe";
-import {tap} from "rxjs/operators";
+import {CommandService} from "./service/fnf-command/command.service";
 
 @Component({
   selector: "fnf-root",
@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
     private readonly sysinfoService: SysinfoService,
     private readonly filePageDataService: FilePageDataService,
     private readonly configService: ConfigService,
+    private readonly commandService: CommandService,
   ) {
     // Set config to services:
     ConfigService.forRoot(environment.config);
@@ -55,7 +56,10 @@ export class AppComponent implements OnInit {
     // init shortcuts:
     this.shortcutService.init();
 
-    this.shortcutService.onActionId$.subscribe(console.info); // TODO weg
+    this.shortcutService.onActionId$
+      .subscribe(
+        this.commandService.callActionById
+      );
 
     this.initTabs();
   }
@@ -67,7 +71,7 @@ export class AppComponent implements OnInit {
       const subs = this.sysinfoService
         .getFirstStartFolder()
         .pipe(
-          tap(console.info)
+          // tap(console.info)
         )
         .subscribe(startFolder => {
           console.info('        > First Start  :', startFolder);
