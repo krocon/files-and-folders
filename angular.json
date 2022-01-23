@@ -8,16 +8,12 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -41,29 +37,21 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/api/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/api/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/api"
-          ],
+          "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
           }
         }
       },
-      "tags": [
-        "scope:api"
-      ]
+      "tags": ["scope:api"]
     },
     "files-and-folders": {
       "projectType": "application",
@@ -73,9 +61,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/files-and-folders",
             "index": "apps/files-and-folders/src/index.html",
@@ -158,18 +144,14 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/files-and-folders"
-          ],
+          "outputs": ["coverage/apps/files-and-folders"],
           "options": {
             "jestConfig": "apps/files-and-folders/jest.config.js",
             "passWithNoTests": true
           }
         }
       },
-      "tags": [
-        "scope:client"
-      ]
+      "tags": ["scope:client"]
     },
     "files-and-folders-e2e": {
       "root": "apps/files-and-folders-e2e",
@@ -191,22 +173,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/files-and-folders-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/files-and-folders-e2e/**/*.{js,ts}"]
           }
         }
       },
-      "tags": [
-        "scope:client-e2e"
-      ],
-      "implicitDependencies": [
-        "files-and-folders"
-      ]
+      "tags": ["scope:client-e2e"],
+      "implicitDependencies": ["files-and-folders"]
     },
     "fnf-data": {
       "projectType": "library",
@@ -216,9 +190,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/fnf-data"
-          ],
+          "outputs": ["coverage/libs/fnf-data"],
           "options": {
             "jestConfig": "libs/fnf-data/jest.config.js",
             "passWithNoTests": true
@@ -234,36 +206,7 @@
           }
         }
       },
-      "tags": [
-        "scope:fnf-data"
-      ]
-    }
-  },
-  "schematics": {
-    "@nrwl/angular": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
+      "tags": ["scope:fnf-data"]
     }
   }
 }

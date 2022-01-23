@@ -65,7 +65,7 @@ describe("DrivesController", () => {
   });
 
 
-  describe("checkpath: c:/", () => {
+  describe("checkpath: root", () => {
 
     it("should check that c:/ exists", () => {
       const ctrl = app.get<DrivesController>(DrivesController);

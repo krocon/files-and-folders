@@ -12,7 +12,7 @@ export type DrivesCallbackFn = (eror: number, sysinfo: string[]) => void;
 export class DrivesService {
 
   static config: Config = new Config();
-  readonly win = os.platform().indexOf('win') !== 0;
+  readonly win  = os.platform() !== 'darwin' && os.platform().indexOf('win') !== 0;
 
   get config(): Config {
     return DrivesService.config;
