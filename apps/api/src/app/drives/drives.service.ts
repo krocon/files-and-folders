@@ -88,7 +88,7 @@ export class DrivesService {
   }
 
   private getWinDrives(callback: DrivesCallbackFn) {
-    if (this.win) {
+    if (!this.win) {
       return callback(null, []);
     } // for windows only.
 
